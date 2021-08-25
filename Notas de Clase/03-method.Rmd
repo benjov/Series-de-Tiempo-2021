@@ -1,3 +1,6 @@
-# Methods
+# Modelos univariados de volatilidad
 
-We describe our methods in this chapter.
+## a) Modelos $ARCH$ y $GARCH$
+
+## b) Otros ejemplos de modelos de volatilidad
+

@@ -1,7 +1,9 @@
-# Applications
+# Procesos No Estacionarios
 
-Some _significant_ applications are demonstrated in this chapter.
+## a) Definición y Formas de No Estacionariedad 
 
-## Example one
+## b) Elminación de la Tendencia
 
-## Example two
+## c) Pruebas de Raíz Unitaria: Dickey-Fuller, Dickey-Fuller Aumentada, Phillips-Perron y Cambio Estructural
+
+## d) Descomposición de Series de Tiempo (Filtros) 

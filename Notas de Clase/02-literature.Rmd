@@ -1,3 +1,11 @@
-# Literature
+# Procesos Estacionarios Univariados 
 
-Here is a review of existing methods.
+## a) Procesos autoregresivos $AR(p)$ 
+
+## b) Procesos de Medias Móviles $MA(q)$
+
+## c) Procesos $ARMA(p,q)$  y $ARIMA (p,d,q)$
+
+## d)Función de Autocorrelación, Función de Autocorrelación Parcial y Pronósticos
+
+We describe our methods in this chapter.

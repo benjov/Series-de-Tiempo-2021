@@ -10,7 +10,7 @@ link-citations: yes
 description: "Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com"
 ---
 
-# Motivación 
+# Introducción 
 
 ## Prerrequisitos
 
@@ -28,4 +28,8 @@ knitr::write_bib(c(
 ), 'packages.bib')
 ```
 
+
+## a) La naturaleza de los datos de Series de Tiempo 
+
+## b) Ejemplos y aplicaciones de las Series de Tiempo 
 
