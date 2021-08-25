@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Notas de Clase: Series de Tiempo</title>
+  <meta name="description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Notas de Clase: Series de Tiempo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Notas de Clase: Series de Tiempo" />
+  
+  <meta name="twitter:description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
+  
+
+<meta name="author" content="Benjamín Oliva, Omar Alfaro-Rivera" />
+
+
+<meta name="date" content="2021-08-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#prerequisites"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notas de Clase: Series de Tiempo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Notas de Clase: Series de Tiempo</h1>
+<p class="author"><em>Benjamín Oliva, Omar Alfaro-Rivera</em></p>
+<p class="date"><em>2021-08-24</em></p>
+</div>
+<div id="prerequisites" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
+<p>Este libro busca ser una interpretación de la literatura revisada en el curso de <em>Series de Tiempo</em> en la Factultad de Economía de la UNAM. En los últimos años el uso de herramientas de programación estadística se han vuelto escenciales en prácticamente cualquier ambito de la estadística aplicada, por lo que este trabajo busca ser una herramienta de apoyo tanto en el apdrendizaje teórico como en la inducción al lenguaje R.</p>
+<p>Como prerequisitos solamente se consideran escenciales cursos previos de <em>Introducción a la Econometría</em> y <em>Álgebra Lineal</em>. Cierta familiaridad con cualquier otro lenguaje de programación será de mucha ayuda más no es mandatorio.</p>
+<p>Todo el material del curso se encuentra en este repositorio de github[!<a href="https://github.com/benjov/Series-de-Tiempo-2021" class="uri">https://github.com/benjov/Series-de-Tiempo-2021</a>].</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

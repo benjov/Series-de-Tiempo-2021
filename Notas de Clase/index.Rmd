@@ -1,0 +1,31 @@
+--- 
+title: "Notas de Clase: Series de Tiempo"
+author: "Benjamín Oliva & Omar Alfaro-Rivera"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com"
+---
+
+# Motivación 
+
+## Prerrequisitos
+
+Este libro busca ser una interpretación de la literatura revisada en el curso de _Series de Tiempo_ en la Factultad de Economía de la UNAM. En los últimos años el uso de herramientas de programación estadística se han vuelto escenciales en prácticamente cualquier ambito de la estadística aplicada, por lo que este trabajo busca ser una herramienta de apoyo tanto en el apdrendizaje teórico como en la inducción al lenguaje R. 
+
+Como prerequisitos solamente se consideran escenciales cursos previos de _Introducción a la Econometría_ y _Álgebra Lineal_. Cierta familiaridad con cualquier otro lenguaje de programación será de mucha ayuda más no es mandatorio. 
+
+Todo el material del curso se encuentra en este repositorio de github[!https://github.com/benjov/Series-de-Tiempo-2021]. 
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+
