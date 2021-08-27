@@ -24,7 +24,7 @@
 <meta name="author" content="Benjamín Oliva &amp; Omar Alfaro-Rivera" />
 
 
-<meta name="date" content="2021-08-24" />
+<meta name="date" content="2021-08-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -72,9 +72,8 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#prerrequisitos"><i class="fa fa-check"></i><b>1.1</b> Prerrequisitos</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#a-la-naturaleza-de-los-datos-de-series-de-tiempo"><i class="fa fa-check"></i><b>1.2</b> a) La naturaleza de los datos de Series de Tiempo</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#b-ejemplos-y-aplicaciones-de-las-series-de-tiempo"><i class="fa fa-check"></i><b>1.3</b> b) Ejemplos y aplicaciones de las Series de Tiempo</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#a-la-naturaleza-de-los-datos-de-series-de-tiempo"><i class="fa fa-check"></i><b>1.1</b> a) La naturaleza de los datos de Series de Tiempo</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#b-ejemplos-y-aplicaciones-de-las-series-de-tiempo"><i class="fa fa-check"></i><b>1.2</b> b) Ejemplos y aplicaciones de las Series de Tiempo</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html"><i class="fa fa-check"></i><b>2</b> Elementos de Ecuaciones en Diferencia</a><ul>
 <li class="chapter" data-level="2.1" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#a-ecuaciones-en-diferencia-homogéneas-de-primer-órden-y-sus-soluciones"><i class="fa fa-check"></i><b>2.1</b> a) Ecuaciones en diferencia homogéneas de primer órden y sus soluciones</a></li>
@@ -134,21 +133,95 @@
 <div id="header">
 <h1 class="title">Notas de Clase: Series de Tiempo</h1>
 <p class="author"><em>Benjamín Oliva &amp; Omar Alfaro-Rivera</em></p>
-<p class="date"><em>2021-08-24</em></p>
+<p class="date"><em>2021-08-26</em></p>
 </div>
 <div id="introducción" class="section level1">
 <h1><span class="header-section-number">Capítulo 1</span> Introducción</h1>
-<div id="prerrequisitos" class="section level2">
-<h2><span class="header-section-number">1.1</span> Prerrequisitos</h2>
-<p>Este libro busca ser una interpretación de la literatura revisada en el curso de <em>Series de Tiempo</em> en la Factultad de Economía de la UNAM. En los últimos años el uso de herramientas de programación estadística se han vuelto escenciales en prácticamente cualquier ambito de la estadística aplicada, por lo que este trabajo busca ser una herramienta de apoyo tanto en el apdrendizaje teórico como en la inducción al lenguaje R.</p>
-<p>Como prerequisitos solamente se consideran escenciales cursos previos de <em>Introducción a la Econometría</em> y <em>Álgebra Lineal</em>. Cierta familiaridad con cualquier otro lenguaje de programación será de mucha ayuda más no es mandatorio.</p>
-<p>Todo el material del curso se encuentra en este repositorio de github[!<a href="https://github.com/benjov/Series-de-Tiempo-2021" class="uri">https://github.com/benjov/Series-de-Tiempo-2021</a>].</p>
-</div>
+<p>Estas notas son un resumen, una síntesis comparativa y, en algunos casos,
+una interpretación propia de los libros de texto de Cowpertwait y Metcalfe
+(2009), Guerrero-Guzmán (2014), Enders (2015), Franses y van Dijk (2003),
+Kirchgassner, Wolters, y Hassler (2012), Lutkepohl (2005), Wei (2019), entre
+otros. En algunos casos se incorpora información adicional para efectos de
+dar contexto al tema analizado (ver sección de Bibliografía para mayores
+detalles).</p>
+<p>El objetivo de este documento es proporcionar un conjunto de apuntes
+que sirva de apoyo para la clase, por ello no deben considerarse como notas
+exhaustivas o como un sustituto de la clase y los laboratorios. Asimismo, es
+deseable que los alumnos puedan aportar sus observaciones y correcciones
+a estas notas, las observaciones a estas notas son esperadas y siempre serán
+bienvenidas y agradecidas.</p>
+<p>En estas notas se estudian los temas que típicamente son incluidos como
+parte de un curso estándar de análisis de series de tiempo y agrega otros
+tantos, los cuales son:</p>
+<ol style="list-style-type: decimal">
+<li><p>Modelos estacionarios univaraidos: AR(p), MA(q), ARMA(p, q) y ARIMA(
+p, d, q);</p></li>
+<li><p>Modelos no estacionarios univariados y Pruebas de raíz unitaria (o pruebas
+para determinar que una serie es estacionaria);</p></li>
+<li><p>Modelos multivariados, entre lo que se incluye a los Vectores Autoregresivos
+(VAR) y los procedimientos de Cointegración</p></li>
+<li><p>Modelación de series univariadas con errores con heterocedasticidad y
+autocorrelación: ARCH(r), GARCH(n), etc.;</p></li>
+<li><p>Modelos multivariados con errores con heterocedasticidad y autocorrelación: M-GARCH y M-GARCH-M;</p></li>
+<li><p>Casos particulares en los que las series incluidas en un modelo multivariado no son del mismo orden de integración, conocidos como modelos
+ADL.</p></li>
+<li><p>Modelos de Datos Panel en series de tiempo, y</p></li>
+<li><p>Modelos no lineales como los de cambios de régimen.</p></li>
+</ol>
 <div id="a-la-naturaleza-de-los-datos-de-series-de-tiempo" class="section level2">
-<h2><span class="header-section-number">1.2</span> a) La naturaleza de los datos de Series de Tiempo</h2>
+<h2><span class="header-section-number">1.1</span> a) La naturaleza de los datos de Series de Tiempo</h2>
+<p>El análisis de series de tiempo tiene muchas aplicaciones en diversos campos
+de la ciencia. Por ejemplo, en la economía continuamente se está expuesto
+a observaciones de los mercados financieros, indicadores de empleo, índices o
+indicadores del nivel de producción, índices de precios, etc. En otros campos
+de las ciencias sociales se emplea el análisis de series de tiempo para analizar
+la evolución de la población, los nacimientos, o el número de personas con
+matriculas escolares. Finalmente, en las ciencias exactas se pueden encontrar
+casos como los de un epidemiólogo que puede estar interesado en el número
+de casos de influenza observados en algún periodo de tiempo dado y si a estos
+se les puede asociar con algún tipo de estacionalidad o si se trata del inicio
+de un fenómeno atípico.</p>
+<p>La primera aproximación que se suele tener a las series de tiempo es
+mediante el exámen de datos puestos en una gráfica, en la cual uno de los
+ejes es el tiempo y el otro es el valor tomado por la variable. No obstante, en
+este tipo de exámenes existen dos enfoques. Por un lado, existe el efoque de la
+importancia del tiempo, el cual consiste en reconocer cómo lo que sucede hoy
+es afectado por lo que pasó ayer o, en general, en periodos pasados, o cómo
+lo que pasa hoy afectará los eventos futuros. Por otro lado, existe el enfoque
+del análisis frecuentista o de frecuencia, mediante el cual se busca reconocer la importancia que tiene para los investigadores los ciclos (estacionales, de
+crisis económicas, etc.)</p>
+<div class="figure" style="text-align: center"><span id="fig:fig1"></span>
+<img src="Notas-de-Clase_files/figure-html/fig1-1.png" alt="Indicador Global de Actividad Económica (IGAE) Global y para las Actividades Primarias (2008=100), Ene.2002 - May.2021" width="672" />
+<p class="caption">
+Figure 1.1: Indicador Global de Actividad Económica (IGAE) Global y para las Actividades Primarias (2008=100), Ene.2002 - May.2021
+</p>
+</div>
 </div>
 <div id="b-ejemplos-y-aplicaciones-de-las-series-de-tiempo" class="section level2">
-<h2><span class="header-section-number">1.3</span> b) Ejemplos y aplicaciones de las Series de Tiempo</h2>
+<h2><span class="header-section-number">1.2</span> b) Ejemplos y aplicaciones de las Series de Tiempo</h2>
+<p>Un primer ejemplo que puede ilustrar la presencia de los dos tipos de
+enfoques antes mencionadas es la Figura <a href="index.html#fig:fig1">1.1</a>. En esta figura se muestra la evolución del Indicador Global de la Actividad Económica (IGAE) en su versión global o del total de la economía y en su versión únicamente para las actividades primarias entre enero de 2002 y mayo de 2021.</p>
+<p>Como se puede observar, el IGAE del total de la economía muestra, principalmente, que el enfoque del tiempo es más relevante. Es decir, que existe cierta persistencia en el indicador, lo que significa que la economía crece en razón del crecimiento reportado en periodos pasados. No obstante, lo que no podemos reconocer es que los eventos futuros tienen un efecto en el desempeño de la economía hoy día. Así, no es común observar cambios abruptos
+del indicador, salvo por la crisis global de 2008 y la reciente crisis causada
+por la Covid-19.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig2"></span>
+<img src="Notas-de-Clase_files/figure-html/fig2-1.png" alt="Ïndice de Confianza del Consumidor (ICC): Geeral y resultado de ¿Cómo considera usted la situación economica del país hoy en día comparda con la de hace 12 meses? (puntos), Ene.2002-may.2021" width="672" />
+<p class="caption">
+Figure 1.2: Ïndice de Confianza del Consumidor (ICC): Geeral y resultado de ¿Cómo considera usted la situación economica del país hoy en día comparda con la de hace 12 meses? (puntos), Ene.2002-may.2021
+</p>
+</div>
+<p>Por el contrario, el IGAE de las actividades primarias muestra una presencia
+significativa de la importancia de la frecuencia. No pasa desapercibido que
+existen muchos ciclos en la evolución del indicador. Algo que suena común
+en las actividades primarias, cuya producción depende de eventos que son
+ciclícos agrícolas asociados con el clima u otros factores determinantes de la
+oferta de productos agrícolas. Otro factor que puede incluir en el indicador
+son elementos de demanda, más que los de oferta. Por ejemplo, el consumo
+de alimentos típicos de algunas temporadas del a~no.</p>
+<p>Como segundo ejemplo, en la Figura 2.2 se ilustra la evolución reciente
+del índice de Confianza del Consumidor (ICC) en dos de sus versiones: i) el
+Índice global y ii) el Índice de confianza de los consumidores cuando estos
+consideran la situación actual en la economía en relación el año anterior.</p>
 
 </div>
 </div>

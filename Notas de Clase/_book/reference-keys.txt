@@ -45,3 +45,6 @@ c-cointegración-de-modelos-de-vectores-autoregresivos
 d-cointegración-y-la-teoría-económica
 modelos-multivariados-de-volatilidad-m---arch-y-m---garch
 otros-modelos-no-lineales-con-rompimiento-y-modelos-de-cambio-de-régimen
+fig:unnamed-chunk-2
+fig:fig1
+fig:fig2
