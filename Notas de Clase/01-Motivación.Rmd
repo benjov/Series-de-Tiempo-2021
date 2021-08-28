@@ -1,6 +1,264 @@
 # Elementos de Ecuaciones en Diferencia 
 
-## a) Ecuaciones en diferencia homogéneas de primer órden y sus soluciones
+## a) Ecuaciones en Diferencia para procesos deterministas
+
+En el capítulo previo se hizó una introducción al concepto de series de tiempo. En este Capítulo se pretende desarrollar la construcción de los procesos generadores de datos de las series de tiempo. En un sentido más formal, se expondrá que las series de tiempo se pueden considerar como una secuencia de variables aleatorias.
+
+Para tales efectos, se desarrollará una introducción al concepto de ecuaciones en diferencia. Así, las preguntas que se pretende responder son:
+
+  a) ¿Cuál es la solución de la ecuación en diferencia que se estudia?
+
+  b)¿Cuáles son las condiciones para que un proceso estocástico, representado mediante una ecuación en diferencia, llegue a alcanzar un punto de equilibrio en el largo plazo?
+
+El término de _ecuación en diferencia_ sirve para denominar un proceso similar o equivalente dentro de las ecuaciones diferenciales, dentro del cual se consideran a un conjunto de variables que están en función del tiempo. Así, si consideramos al tiempo como una variable continua, es decir, consideramos una variable $Z(t)$, podemos expresar las siguientes expresiones para la ecuación diferencial:
+
+\begin{equation}
+    \frac{dZ(t)}{dt}; \frac{d^2Z(t)}{dt^2}; \ldots; \frac{d^kZ(t)}{dt^k}
+        (\#eq:eqDiff)
+\end{equation}
+
+Por otro lado, suponiendo el caso del tiempo en forma discreta, es decir, con $t = \ldots, -2, -1, 0, 1, 2, \ldots$, entonces el comportamiento de la serie de variables dadas por $Z_t$, la cual se puede expresar como:
+
+\begin{equation}
+    \Delta Z_t; \Delta^2 Z_t; \ldots; \Delta^k Z_t
+    (\#eq:Diff1)
+\end{equation}
+
+Observemos que una forma técnicamente más correcta es escribir las expresiones anteriores como:
+
+\begin{equation}
+    \frac{\Delta Z_t}{\Delta t}; \frac{\Delta^2 Z_t}{\Delta t^2}; \ldots; \frac{\Delta^k Z_t}{\Delta t^k}
+    (\#eq:Diff2)
+\end{equation}
+
+No obstante, no pasa desapercibido que $\Delta t = 1$, por lo que resultan equivalentes ambos conjuntos de expresiones \@ref(eq:Diff1) y \@ref(eq:Diff2).
+
+### Ecuaciones en Diferencia Lineales de Primer Orden
+
+El primer caso que se suele estudiar en relación a Ecuaciones en Diferencia es el de las Ecuaciones en Diferencia Lineales de Primer Orden. Al respecto, al igual que en el caso continúo, las variaciones de la variable $Z_t$ se pueden expresar como se ilustra en el siguiente ejemplo. Consideremos la siguiente ecuación:
+
+\begin{equation}
+    Z_t = a_0 + a_1 Z_{t-1}
+    (\#eq:EDPO)
+\end{equation}
+
+Donde, $t = \ldots, -2, -1, 0, 1, 2, \ldots$, y $a_0$ y $a_1 \neq 0$ son números reales constantes. De (\@ref(eq:EDPO) podememos despejar la variable $Z_{t-1}$ y obtener una forma de ecuación en diferencia:
+\begin{equation}
+    Z_t - a_1 Z_{t-1} = a_0
+    (\#eq:EDPO2)
+\end{equation}
+
+Ahora denotemos a $L Z_t = Z_{t-1}$, es decir, mediante el operador $L$ se puede rezagar una variable dada. En general, podemos decir que el operador tiene dos propiedades, la primera es que es lineal en el sentido de que abre sumas y saca escalares como se muestra en la siguiente expresión para el caso de un (1) rezago:
+
+\begin{equation}
+    L(\alpha Z_{t} + \beta) = \alpha Z_{t-1} + \beta
+    (\#eq:E1Lag)
+\end{equation}
+
+Donde $\alpha, \beta \in \mathbb{R}$ y $\alpha, \beta \neq 0$. Otro reesultado implícito en esta primera propiedad es que el operador rezago aplicado a cualquier escalar dará como resultado el escalar, puesto que este es una constante sin importa el momento $t$ en el cual se encuentre la variable $Z$.
+
+La segunda propiedad del operador es que se puede aplicar de forma consecutiva a una misma variable. Es decir, $L ( Z_{t-1}) = L L Z_{t} = L^2 Z_{t}$, por lo que en general tendremos: $L^p Z_t = Z_{t-p}$ (con $p \in \mathbb{Z}$). Así, en el caso de p rezagos la propiedad de linealidad del operador rezago será:
+
+\begin{equation}
+    L^p (\alpha Z_{t} + \beta) = \alpha Z_{t-p} + \beta
+   (\#eq:LinProp)
+\end{equation}
+
+Dicho lo anterio podemos escribir la solución general de \@ref(eq:EDPO2) como:
+
+\begin{eqnarray}
+    Z_t - a_1 L Z_t & = & a_0 \nonumber \\
+    (1 - a_1 L)Z_t & = & a_0 \nonumber \\
+    Z_t & = & a_0 \frac{1}{1 - a_1 L} + s a^t_1 \nonumber \\
+    Z_t & = & a_0 \frac{1}{1 - a_1} + s a^t_1
+    (\#eq:PROC01)
+\end{eqnarray}
+
+Donde $a_1 \neq 1$ y $t = \ldots, -2, -1, 0, 1, 2, \ldots$. Notése que la aplicación del operador rezago $L$ a la constante $a_1$ dará como resultado el valor de la misma constante, ya que ésta no depende del momento $t$ en el cuál observemos a la variable $Z_t$. En la ecuación \@ref(eq:PROC01) se adiciona un término $s a^t_1$ que permite ubicar la trayectoria inicial de la solución de la ecuación. El componente no significa un cambio respecto de la ecuación \@ref(eq:EDPO2) original, ya que si buscaramos reconstruir a ésta ecuación tendríamos:
+\begin{eqnarray}
+    (1 - a_1 L) s a^t_1 & = & s a^t_1 - a_1 s L a^{t}_1 \nonumber \\
+    & = & s a^t_1 - a_1 s a^{t - 1}_1 \nonumber \\
+    & = & s a^t_1 - s a^t_1 \nonumber \\
+    & = & 0 \nonumber
+\end{eqnarray}
+
+La ecuación \@ref(eq:PROC01) se suele interpretar como la solución de largo plazo. Ahora demostraremos por qué es cierta la ecuación y discutiremos algunas condiciones que se deben observar en esta solución para que sea una solución convergente. No obstante, primero discutiremos un método indirecto e incompleto para demostrar el resultado, dicho método es conocido como el método iterativo. Plantearemos las siguientes ecuaciones partículares donde suponemos la existencia del valor inicial $Z_0$ del proceso:
+
+\begin{equation*}
+    Z_1 = a_0 + a_1 Z_0
+\end{equation*}
+
+\begin{eqnarray*}
+Z_2 & = & a_0 + a_1 Z_1 \\
+    & = & a_0 + a_1 (a_0 + a_1 Z_0) \\
+    & = & a_0 +  a_0 a_1 + a^2_1 Z_0 \\
+    & = & a_0 (1 + a_1) + a^2_1 Z_0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+Z_3 & = & a_0 + a_1 Z_2 \\
+    & = & a_0 + a_1 (a_0 +  a_0 a_1 + a^2_1 Z_0) \\
+    & = & a_0 +  a_0 a_1 + a_0 a^2_1 + a^3_1 Z_0 \\
+    & = & a_0 (1 + a_1 + a^2_1) + a^3_1 Z_0
+\end{eqnarray*}
+
+De lo anterior se puede inferir que el método iterativo convergerá hacia una expresión como la siguiente en el momento $t$:
+
+\begin{eqnarray}
+Z_t & = & a_0 + a_1 Z_{t-1} \nonumber \\
+    & = & a_0 (1 + a_1 + a^2_1 + \ldots + a^{t-1}_1) + a^t_1 Z_0 \nonumber \\
+    & = & a_0 \sum^{t-1}_{i = 0}{a^i_1} + a^t_1 Z_0
+    (\#eq:SUM)
+\end{eqnarray}
+
+Donde, es necesario que en la ecuación \@ref(eq:SUM) se cumpla que $\lvert{a_1}\lvert < 1$ para que la suma sea convergente --más adelante detallaremos esta afirmación--. A este tipo de ecuaciones se les puede denominar como lineales. Esto en razón de que ningún término de la variable $Z$ aparce elevado a ninguna potencia distinta a 1. También, son de primer orden, ya que el rezago de la variable $Z$ es sólo de un período. 
+
+En adelante trabajaremos con ecuaciones en las que la variable $Z$ se encuentra rezagada en cualquiera de los siguientes casos:
+\begin{equation}
+    Z_t, Z_{t-1}, Z_{t-2}, Z_{t-3}, \ldots, Z_{t-p}, \ldots
+    (\#eq:SUM0)
+\end{equation}
+
+Por lo que diremos que en adelante el curso versará sobre ecuaciones en diferencia lineales y de cualquier orden $p$. 
+
+Retomando la ecuación (\ref{SUM}) y considerando la parte de la suma de los términos de $a^i_1$, de tal forma que buscaremos dar una expresión más compresible a dicho término. Definamos la siguiente expresión como:
+\begin{equation}
+    S_{t-1} = \sum^{t-1}_{i = 0}{a^i_1}
+    (\#eq:St1)
+\end{equation}
+
+Por lo tanto, $S_t$ estaría dado por la siguiente expresión:
+\begin{eqnarray}
+S_{t} & = & a_1 \sum^{t-1}_{i = 0}{a^i_1} \nonumber \\
+      & = & a_1 (1 + a_1 + a^2_1 + \ldots + a^{t-1}_1) \nonumber \\
+      & = & a_1 + a^2_1 + a^3_1 + \ldots + a^{t}_1 \nonumber \\
+      & = & a_1 S_{t-1}
+      (\#eq:St)
+\end{eqnarray}
+
+Tomando los dos resultados de las ecuaciones \@ref(eq:St1) y \@ref(eq:St) anteriores, podemos expresar que si a $S_{t-1}$ le restamos $S_t$, y desarrollando ambos lados de la ecuación anterior podemos obtener:
+
+\begin{eqnarray}
+    S_{t-1} - a_1 S_{t-1} & = & S_{t-1} - S_{t} \nonumber \\
+    (1 - a_1) S_{t-1} & = & (1 + a_1 + a^2_1 + \ldots + a^{t-1}_1) - (a_1 + a^2_1 + a^3_1 + \ldots + a^{t}_1) \nonumber \\
+    (1 - a_1) S_{t-1} & = & 1 - a^{t}_1 \nonumber
+\end{eqnarray}
+
+Así, podemos concluir que:
+\begin{equation}
+    S_{t-1} = \frac{1 - a^{t}_1}{1 - a_1}
+    (\#eq:SUM2)
+\end{equation}
+
+Conjuntando éste último resultado de la ecuación \@ref(eq:SUM2) con la ecuación \@ref(eq:SUM) tenemos la siguiente solución por el método de iteración:
+
+\begin{equation}
+    Z_t = a_0 \left( \frac{1 - a^{t}_1}{1 - a_1} \right) + a^t_1 Z_0
+    (\#eq:SOLITER)
+\end{equation}
+
+De esta forma la ecuación \@ref(eq:SOLITER) es una solición para la ecuación \@ref(eq:SUM), que es una ecuación de un proceso de una Ecuación en Diferencia plantenado en la ecuación \@ref(eq:EDPO). Está solución aún no es general, en el sentido de que sea válida para cualquiel tipo de proceso: convergente o divergente. Dicha convergencia o divengencia estará determinada por el paramétro $a_1$. No debe pasar desapercibido que cuando $t \rightarrow \infty$ o cuando la muestra es muy grande (lo que es equivalente), podemos decir que la solución solo puede converger a la siguiente expresión cuando se considera que $|a_1| < 1$:
+\begin{equation}
+    Z_t = a_0 \left( \frac{1}{1 - a_1} \right)
+    (\#eq:trayec)
+\end{equation}
+
+Retomemos ahora el caso general descrito en la ecuación \@ref(eq:PROC01) y determinemos una solución general en la cual $a_1 \neq 1$ y $t = \ldots, -2, -1, 0, 1, 2, \ldots$. Para ello observemos que el siguiente componente en la ecuación mencionada se puede interpretar como la suma infinita de términos descritos como:
+\begin{eqnarray}
+    \frac{1}{1 - a_1} & = & 1 + a_1 + a_1^2 + \ldots + a_1^t + \ldots \nonumber \\
+    & = & \sum_{i = 0}^{\infty} a_1^{i}
+    (\#(eq:SUMINF)
+\end{eqnarray}
+
+Donde claramente es necesario que $|a_1| < 1$. Por lo tanto, sólo faltaría determinar el valor de la constante $s$ en la ecuación (\ref{PROC01}) de la siguiente forma, supongamos que observamos el proceso en el momento inicial, por lo que es posible determinar el valor de la constante conociendo el valor inicial del proceso como sigue:
+\begin{equation}
+    Z_0 = a_0 \frac{1}{1 - a_1} + s
+(\#eq:Z0)
+\end{equation}
+
+De la ecuación \@ref(eq:Z0) tenemos que:
+\begin{equation}
+    s = Z_0 - a_0 \frac{1}{1 - a_1}
+(\#eq:eqs)
+\end{equation}
+
+Así, juntando la ecuación \@ref(eq:PROC01) y ecuación \@ref(eq:eqs) tenemos la expresión:
+
+\begin{equation}
+    Z_t = a_0 \frac{1 - a^t_1}{1 - a_1} + a^t_1 Z_0
+(\#eq:SOLGEN)
+\end{equation}
+
+No debe pasar desapercibido que está solución es la misma que la mostrada en la ecuación (\@ref(eq:SOLITER), por lo que en realidad ambas ecuaciones son una solución general indistintamente entre las ecuaciones \@ref(eq:SOLITER) y \@ref(eq:SOL_GEN). Ambas convergen a la expresión como la ecuación \@ref(eq:trayec), con la misma condición de convergencia $|a_1| < 1$. Para ilustrar estas ecuaciones veámos algunos ejemplos al respecto. 
+
+Consideremos que tenemos un proceso $Z_t$ que es descrito por una ecuación en diferencia lineal de primer orden dada por:
+
+\begin{equation}
+    Z_t = 2 + 0.9 Z_{t-1}
+(\#eq:ex1)
+\end{equation}
+
+Siguiendo la expresión mostrada en la ecuación \@ref(eq:SOLGEN), obtenemos la expresión:
+\begin{equation}
+    Z_t = 2 \left( \frac{1 - 0.9^{t}}{1 - 0.9} \right) + 0.9^t Z_0
+(\#eq:ex2)
+\end{equation}
+
+Donde asumiremos que el valor inicial es $Z_0 = 10$ y que la expresión debe converger al valor de 20, cuando $t$ es muy grande o tiende a infinito. De forma similar tomemos otro ejemplo, en el cual asumimos la siguiente expresión:
+\begin{equation}
+    Z_t = 2 - 0.5 Z_{t-1}
+(\#eq:ex3)
+\end{equation}
+
+Siguiendo la expresión mostrada en la ecuación (\ref{SOL_GEN}), obtenemos:
+
+\begin{equation}
+    Z_t = 2 \left( \frac{1 - (-0.5)^{t}}{1 + 0.5} \right) + (-0.5)^t Z_0
+(\#eq:ex4)
+\end{equation}
+
+Donde asumiremos que el valor inicial es $Z_0 = 10$ y que la ecuación converge al valor de $1.3333333 \ldots$, cuando $t$ es muy grande o tiende a infinito. Ahora simulemos el comportamiento de ambos procesos y estableceremos los resultados del Cuadro \ref{eq_diff_01}. Notemos que el segundo proceso converge de una forma más rapida que el primero. El Cuadro \ref{eq_diff_01} se ilustra en las siguientes dos Figura \ref{G1_PROC_01} y Figura \ref{G1_PROC_02}.
+
+```{r table1}
+
+Tiempo = c(0:16, seq(20,90, 5), 96:100)
+
+
+```
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c | c | c |}
+    \hline
+    Tiempo & $Z_t = 2 + 0.9 Z_{t-1}$ & $Z_t = 2 - 0.5 Z_{t-1}$ \\
+    \hline
+    0 & 10.00000 & 10.000000 \\
+    1 & 11.00000 & -3.000000 \\
+    2 & 11.90000 & -1.500000 \\
+    3 & 12.71000 & 0.250000 \\
+    4 & 13.43900 & 0.625000 \\
+    5 & 14.09510 & 1.062500 \\
+    6 & 14.68559 & 1.156250 \\
+    7 & 15.21703 & 1.265625 \\
+    8 & 15.69533 & 1.289062 \\
+    9 & 16.12580 & 1.316406 \\
+    10 & 16.51322 & 1.322266 \\
+    11 & 16.86189 & 1.329102 \\
+    12 & 17.17570 & 1.330566 \\
+    13 & 17.45813 & 1.332275 \\
+    14 & 17.71232 & 1.332642 \\
+    15 & 17.94109 & 1.333069 \\
+    16 & 18.14698 & 1.333160 \\
+    \vdots & \vdots & \vdots \\
+    97 & 19.99964 & 1.333333 \\
+    98 & 19.99967 & 1.333333 \\
+    99 & 19.99970 & 1.333333 \\
+    100 & 19.99973 & 1.333333 \\
+    \hline
+    \end{tabular}
+    \caption{Dos ejemplos de procesos de Ecuaciones Lineales de Primer Orden convengentes}
+    \label{eq_diff_01}
+\end{table}
 
 ## b) Operadores de rezago y sus representaciones
 

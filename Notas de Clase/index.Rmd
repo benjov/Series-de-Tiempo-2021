@@ -112,7 +112,7 @@ Como se puede observar, el IGAE del total de la economía muestra, principalment
 del indicador, salvo por la crisis global de 2008 y la reciente crisis causada
 por la Covid-19.
 
-```{r fig2,fig.cap = "Ïndice de Confianza del Consumidor (ICC): Geeral y resultado de ¿Cómo considera usted la situación economica del país hoy en día comparda con la de hace 12 meses? (puntos), Ene.2002-may.2021",  echo=FALSE, fig.align='center'}
+```{r fig2,fig.cap = "índice de Confianza del Consumidor (ICC): General y resultado de ¿Cómo considera usted la situación economica del país hoy en día comparada con la de hace 12 meses? (puntos), Ene.2002-may.2021",  echo=FALSE, fig.align='center'}
 plot(ICC, type = "l", lwd = 1, col = "red", ylab = "Indice", xlab = "Tiempo", ylim = c(29, 50))
 # Comando que indica a R que sin borrar la grafica anterior, grafique la siguiente.
 par(new = T) 
@@ -131,9 +131,94 @@ en las actividades primarias, cuya producción depende de eventos que son
 ciclícos agrícolas asociados con el clima u otros factores determinantes de la
 oferta de productos agrícolas. Otro factor que puede incluir en el indicador
 son elementos de demanda, más que los de oferta. Por ejemplo, el consumo
-de alimentos típicos de algunas temporadas del a~no.
+de alimentos típicos de algunas temporadas del año.
 
-Como segundo ejemplo, en la Figura 2.2 se ilustra la evolución reciente
-del índice de Confianza del Consumidor (ICC) en dos de sus versiones: i) el
-Índice global y ii) el Índice de confianza de los consumidores cuando estos
-consideran la situación actual en la economía en relación el año anterior.
+Como segundo ejemplo, en la Figura \@ref(fig:fig2) se ilustra la evolución reciente del índice de Confianza del Consumidor (ICC) en dos de sus versiones: i) el Índice global y ii) el Índice de confianza de los consumidores cuando estos consideran la situación actual en la economía en relación el año anterior.
+
+Destacamos que el ICC mide las expectativas de los consumidores en
+razón de la información pasada y de la esperada, segun dichos consumidores.
+
+```{r fig3,fig.cap = "índice de Precios y Cotizaciones de la Bolsa Mexicana de Valores (Panel Derecho) y Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera, pesos por dólar (Panel izquierdo), Ene.2002-May.2021 ",  echo=FALSE, fig.align='center'}
+par(mfrow=c(1,2))
+
+# Indice de Precios y Cotizaciones de la Bolsa Mexicana de Valores
+plot(IPC_BMV, type = "l", lwd = 1, col = "red", ylab = "Indice", xlab = "Tiempo", main = "Indice de Precios y Cotizaciones BMV")
+# Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera
+plot(TDC, type = "l", lwd = 1, col = "blue", ylab = "Pesos X Dolar", xlab = "Tiempo", main = "Tipo de Cambio")
+par(mfrow=c(1,1))
+
+
+```
+
+Así, es probable que las dos series de tiempo exhiban un gran peso para los
+eventos pasados, pero a la vez, un componente -probablemente menor- del
+componente de frecuencia. Esto último en razón de que los consumidores
+suelen considerar en sus expectativas de consumo los periódos cíclicos de la
+economía: temporadas navideñaas, pagos de colegiaturas, etc. Este sengundo
+ejemplo tambien ilustra que la confianza del consumidor no necesariamente
+está directamente correlacionada con el desempeño de la economía.
+
+Como tercer ejemplo se muestra la evolución de dos series. La Figura \@ref(fig:fig3) ilustra el comportamiento reciente de dos indicadores que son referencia para los inversionistas. Por un lado, se ubica el índice de Precios y Cotizaciones de la BMV (IPC), el cuál refleja el valor de las acciones de empresas que cotizan en la BMV y el volumen de acciones comercializadas, en conjunto. De esta forma, se ha interpretado que el IPC refleja el rendimiento del capital promedio invertido en las empresas que cotizan en la BMV.
+
+Por otro lado, en la Figura \@ref(fig:fig3) se presenta la evolución del Tipo de Cambio (TDC){indicador financiero que se suele utilizar como medio de reserva de valor. Esto, en razón de que el TDC es conocido como un instrumento que en momentos de crisis toma valores contraciclicos de la economía mexicana. No obstante, ambos indicadores no son comparables. Para hacerlos comparbles
+en la Figura \@ref(fig:fig4) se presentan en versión índice con una base en el primer mes de la muestra. 
+
+```{r fig4, fig.cap = "Índice del índice de Precios y Cotizaciones de la Bolsa Mexicana de Valores (Panel Derecho) e Índice del Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera (ambos enero de 2002 = 100), pesos por dólar (Panel izquierdo), Ene.2002-May.2021 ",  echo=FALSE, fig.align='center'}
+
+IPC_BMV_I <- 100*IPC_BMV/IPC_BMV[1]
+TDC_I <- 100*TDC/TDC[1]
+# Indice del indice de Precios y Cotizaciones de la Bolsa Mexicana de Valores
+plot(IPC_BMV_I, type = "l", lwd = 1, col = "red", ylab = "Indice", xlab = "Tiempo", ylim = c(80,740))
+# Comando que indica a R que sin borrar la grafica anterior, grafique la siguiente.
+par(new = T)
+# Indice del Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera
+plot(TDC_I, type = "l", lwd = 1, col = "blue", ylab = "Indice", xlab = "Tiempo", ylim = c(80,740))
+# Leyenda
+legend("topleft", c("Indice del IPC","Indice del TDC"), cex = 0.8, lty = 1:1, col = c("red", "blue"))
+par(new = F)
+```
+
+En la perspectiva de la Figura \@ref(fig:fig4) se puede apreciar que el TDC no es tan rentable, ya que una inversión en la BMV mediante el IPC, en el largo plazo, muestra más redimientos. Asimismo, la Figura \@ref(fig:fig4) ilustra que en ambas series se observa un dominio de la condición de tiempo y no uno de frecuencia. Es decir, tanto el IPC como el TDC no responden a condiciones como ciclos o temporadas que si son observables en actividades económicas como las
+primarias. 
+
+Finalmente, la Figura \@ref(fig:fig5) ilustra un característica que también resulta de gran interés en el analásis de series de tiempo: los datos de alta frecuencia y de comportamiento no regular. Como se puede observar, en la Figura \@ref(fig:fig5) se muestran las diferencias logarítmicas de las series de IGAE de la actividad total, el IPC y el TDC.
+
+```{r fig5, fig.cap = "Tasas de Crecimiento mensuales (diferencias logarítmicas) de Indicador Global de la Actividad Económica, Índice de Precios y Cotizaciones de la Bolsa Mexicana de Valores (Panel Derecho) y Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera, Ene.2002-May.2021 ",  echo=FALSE, fig.align='center'}
+
+par(mfrow=c(3,1))
+# Indicador Global de la Actividad Econ?mica, base 2008
+plot(diff(log(IGAE_2013), lag = 1), type = "l", lwd = 1, col = "red", ylab = "Var. %", xlab = "Tiempo", main = "Indicador Global de la Actividad Economica") 
+# Indice de Precios y Cotizaciones de la Bolsa Mexicana de Valores
+plot(diff(log(IPC_BMV), lag = 1), type = "l", lwd = 1, col = "red", ylab = "Var. %", xlab = "Tiempo", main = "Indice de Precios y Cotizaciones BMV")
+# Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera
+plot(diff(log(TDC), lag = 1), type = "l", lwd = 1, col = "blue", ylab = "Pesos X Dolar", xlab = "Tiempo", main = "Tipo de Cambio")
+par(mfrow=c(1,1))
+```
+
+Dichas diferencia se pueden interpretar como una tasa de crecimiento de las series por las siguientes razones. Consideremos una serie de tiempo dada por $y_t$, cuya versión logarítmica es $ln(y_t$). De esta forma, la diferencia logarítmica esta dada por la ecuación \@ref(eq:difflog):
+
+\begin{equation}
+   \Delta ln(y_t) = ln(y_t) - ln(y_{t-1}) = ln \left( \frac{y_t}{y_{t-1}} \right)
+   (\#eq:difflog)
+\end{equation}
+
+Ahora bien, si retomamos la definición de tasa de crecimiento (TC) de una serie de tiempo $y_t$ entre el periodo $t$ y $t-1$ podemos obtener que:
+
+\begin{equation}
+    TC = \frac{y_t - y_{t-1}}{y_{t-1}} = \frac{y_t}{y_{t-1}} - 1
+    (\#eq:TC)
+\end{equation}
+
+De esta forma, si tomamos el logarítmo de la expresión de la ecuación \@ref(eq:TC) obtenemos la siguiente aproximación:
+
+\begin{equation}
+    \frac{y_t}{y_{t-1}} -1  \approx ln \left( \frac{y_t}{y_{t-1}} \right) = ln(y_t) - ln(y_{t-1})
+    (\#eq:TCDiffLog)
+\end{equation}
+
+La ecuación \@ref(eq:TCDiffLog) es cierta cuando los valores de $y_t$ y $y_{t-1}$ son muy parecidos, es decir, cuando las variaciones no son tan abruptas. Otra forma de interpretar la ecuación \@ref(eq:TCDiffLog) es que para tasas de crecimiento pequeñas, se puede utilizar como una buena aproximación a la diferencia logarítmica mostrada en la ecuación \@ref(eq:difflog).
+
+
+En la Figura \@ref(fig:fig5) se reportan las diferencias logarítmicas del IGAE, IPC y TDC, todos, como una media de distitntos tipos de redimientos. Es decir, podemos decir que un capitalista promedio (suponiendo que solo puede invertir en la actividad económica, en la bolsa o en el dólar), puede observar que le es más redituable en función de sus preferencias.
+
+Notése que la dinámica de las variaciones de cada una de las series es significativamente diferente. Destaca que el TDC es una de las variables que, en general, no muestra grandes cambios a lo largo del tiempo. No obstante, se han observado cambios radicales, cuando menos en el año 2008. Lo anterior, son caracteristicas que se han observado para el IPC. En cambio, el IGAE muestra un comportamiento más estable o estacionario.

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Elementos de Ecuaciones en Diferencia | Notas de Clase: Series de Tiempo</title>
+  <meta name="description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Elementos de Ecuaciones en Diferencia | Notas de Clase: Series de Tiempo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Elementos de Ecuaciones en Diferencia | Notas de Clase: Series de Tiempo" />
+  
+  <meta name="twitter:description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
+  
+
+<meta name="author" content="Benjamín Oliva &amp; Omar Alfaro-Rivera" />
+
+
+<meta name="date" content="2021-08-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="procesos-estacionarios-univariados.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Series de Tiempo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#a-la-naturaleza-de-los-datos-de-series-de-tiempo"><i class="fa fa-check"></i><b>1.1</b> a) La naturaleza de los datos de Series de Tiempo</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#b-ejemplos-y-aplicaciones-de-las-series-de-tiempo"><i class="fa fa-check"></i><b>1.2</b> b) Ejemplos y aplicaciones de las Series de Tiempo</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html"><i class="fa fa-check"></i><b>2</b> Elementos de Ecuaciones en Diferencia</a><ul>
+<li class="chapter" data-level="2.1" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#a-ecuaciones-en-diferencia-para-procesos-deterministas"><i class="fa fa-check"></i><b>2.1</b> a) Ecuaciones en Diferencia para procesos deterministas</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#ecuaciones-en-diferencia-lineales-de-primer-orden"><i class="fa fa-check"></i><b>2.1.1</b> Ecuaciones en Diferencia Lineales de Primer Orden</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#b-operadores-de-rezago-y-sus-representaciones"><i class="fa fa-check"></i><b>2.2</b> b) Operadores de rezago y sus representaciones</a></li>
+<li class="chapter" data-level="2.3" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#c-representación-de-algunos-procesos-divergentes"><i class="fa fa-check"></i><b>2.3</b> c) Representación de algunos procesos divergentes</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html"><i class="fa fa-check"></i><b>3</b> Procesos Estacionarios Univariados</a><ul>
+<li class="chapter" data-level="3.1" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html#a-procesos-autoregresivos-arp"><i class="fa fa-check"></i><b>3.1</b> a) Procesos autoregresivos <span class="math inline">\(AR(p)\)</span></a></li>
+<li class="chapter" data-level="3.2" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html#b-procesos-de-medias-móviles-maq"><i class="fa fa-check"></i><b>3.2</b> b) Procesos de Medias Móviles <span class="math inline">\(MA(q)\)</span></a></li>
+<li class="chapter" data-level="3.3" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html#c-procesos-armapq-y-arima-pdq"><i class="fa fa-check"></i><b>3.3</b> c) Procesos <span class="math inline">\(ARMA(p,q)\)</span> y <span class="math inline">\(ARIMA (p,d,q)\)</span></a></li>
+<li class="chapter" data-level="3.4" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html#dfunción-de-autocorrelación-función-de-autocorrelación-parcial-y-pronósticos"><i class="fa fa-check"></i><b>3.4</b> d)Función de Autocorrelación, Función de Autocorrelación Parcial y Pronósticos</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="modelos-univariados-de-volatilidad.html"><a href="modelos-univariados-de-volatilidad.html"><i class="fa fa-check"></i><b>4</b> Modelos univariados de volatilidad</a><ul>
+<li class="chapter" data-level="4.1" data-path="modelos-univariados-de-volatilidad.html"><a href="modelos-univariados-de-volatilidad.html#a-modelos-arch-y-garch"><i class="fa fa-check"></i><b>4.1</b> a) Modelos <span class="math inline">\(ARCH\)</span> y <span class="math inline">\(GARCH\)</span></a></li>
+<li class="chapter" data-level="4.2" data-path="modelos-univariados-de-volatilidad.html"><a href="modelos-univariados-de-volatilidad.html#b-otros-ejemplos-de-modelos-de-volatilidad"><i class="fa fa-check"></i><b>4.2</b> b) Otros ejemplos de modelos de volatilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html"><i class="fa fa-check"></i><b>5</b> Procesos No Estacionarios</a><ul>
+<li class="chapter" data-level="5.1" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#a-definición-y-formas-de-no-estacionariedad"><i class="fa fa-check"></i><b>5.1</b> a) Definición y Formas de No Estacionariedad</a></li>
+<li class="chapter" data-level="5.2" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#b-elminación-de-la-tendencia"><i class="fa fa-check"></i><b>5.2</b> b) Elminación de la Tendencia</a></li>
+<li class="chapter" data-level="5.3" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#c-pruebas-de-raíz-unitaria-dickey-fuller-dickey-fuller-aumentada-phillips-perron-y-cambio-estructural"><i class="fa fa-check"></i><b>5.3</b> c) Pruebas de Raíz Unitaria: Dickey-Fuller, Dickey-Fuller Aumentada, Phillips-Perron y Cambio Estructural</a></li>
+<li class="chapter" data-level="5.4" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#d-descomposición-de-series-de-tiempo-filtros"><i class="fa fa-check"></i><b>5.4</b> d) Descomposición de Series de Tiempo (Filtros)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html"><i class="fa fa-check"></i><b>6</b> Procesos de Vectores Autoregresivos</a><ul>
+<li class="chapter" data-level="6.1" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#a-definición-y-caracterización-del-concepto-de-causalidad"><i class="fa fa-check"></i><b>6.1</b> a) Definición y Caracterización del concepto de causalidad</a></li>
+<li class="chapter" data-level="6.2" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#b-prueba-de-causalidad"><i class="fa fa-check"></i><b>6.2</b> b) Prueba de Causalidad</a></li>
+<li class="chapter" data-level="6.3" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#c-definición-y-representación-del-sistema"><i class="fa fa-check"></i><b>6.3</b> c) Definición y representación del Sistema</a></li>
+<li class="chapter" data-level="6.4" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#d-causalidad-de-granger"><i class="fa fa-check"></i><b>6.4</b> d) Causalidad de Granger</a></li>
+<li class="chapter" data-level="6.5" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#e-análisis-de-impulso-respuesta"><i class="fa fa-check"></i><b>6.5</b> e) Análisis de Impulso-Respuesta</a></li>
+<li class="chapter" data-level="6.6" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#f-modelos-var1-var2-y-varp"><i class="fa fa-check"></i><b>6.6</b> f) Modelos <span class="math inline">\(VAR(1)\)</span>, <span class="math inline">\(VAR(2)\)</span> y $VAR(p)</a></li>
+<li class="chapter" data-level="6.7" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#a-definición-y-propiedades-del-proceso-de-cointegración"><i class="fa fa-check"></i><b>6.7</b> a) Definición y Propiedades del Proceso de Cointegración</a></li>
+<li class="chapter" data-level="6.8" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#b-cointegración-de-modelos-de-una-ecuación"><i class="fa fa-check"></i><b>6.8</b> b) Cointegración de Modelos de una Ecuación</a></li>
+<li class="chapter" data-level="6.9" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#c-cointegración-de-modelos-de-vectores-autoregresivos"><i class="fa fa-check"></i><b>6.9</b> c) Cointegración de Modelos de Vectores Autoregresivos</a></li>
+<li class="chapter" data-level="6.10" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#d-cointegración-y-la-teoría-económica"><i class="fa fa-check"></i><b>6.10</b> d) Cointegración y la Teoría Económica</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modelos-multivariados-de-volatilidad-m-arch-y-m-garch.html"><a href="modelos-multivariados-de-volatilidad-m-arch-y-m-garch.html"><i class="fa fa-check"></i><b>7</b> Modelos multivariados de volatilidad: <span class="math inline">\(M - ARCH\)</span> y <span class="math inline">\(M - GARCH\)</span></a></li>
+<li class="chapter" data-level="8" data-path="otros-modelos-no-lineales-con-rompimiento-y-modelos-de-cambio-de-régimen.html"><a href="otros-modelos-no-lineales-con-rompimiento-y-modelos-de-cambio-de-régimen.html"><i class="fa fa-check"></i><b>8</b> Otros modelos no lineales (con rompimiento y modelos de cambio de régimen)</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notas de Clase: Series de Tiempo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="elementos-de-ecuaciones-en-diferencia" class="section level1">
+<h1><span class="header-section-number">Capítulo 2</span> Elementos de Ecuaciones en Diferencia</h1>
+<div id="a-ecuaciones-en-diferencia-para-procesos-deterministas" class="section level2">
+<h2><span class="header-section-number">2.1</span> a) Ecuaciones en Diferencia para procesos deterministas</h2>
+<p>En el capítulo previo se hizó una introducción al concepto de series de tiempo. En este Capítulo se pretende desarrollar la construcción de los procesos generadores de datos de las series de tiempo. En un sentido más formal, se expondrá que las series de tiempo se pueden considerar como una secuencia de variables aleatorias.</p>
+<p>Para tales efectos, se desarrollará una introducción al concepto de ecuaciones en diferencia. Así, las preguntas que se pretende responder son:</p>
+<ol style="list-style-type: lower-alpha">
+<li>¿Cuál es la solución de la ecuación en diferencia que se estudia?</li>
+</ol>
+<p>b)¿Cuáles son las condiciones para que un proceso estocástico, representado mediante una ecuación en diferencia, llegue a alcanzar un punto de equilibrio en el largo plazo?</p>
+<p>El término de <em>ecuación en diferencia</em> sirve para denominar un proceso similar o equivalente dentro de las ecuaciones diferenciales, dentro del cual se consideran a un conjunto de variables que están en función del tiempo. Así, si consideramos al tiempo como una variable continua, es decir, consideramos una variable <span class="math inline">\(Z(t)\)</span>, podemos expresar las siguientes expresiones para la ecuación diferencial:</p>
+<p><span class="math display" id="eq:eqDiff">\[\begin{equation}
+    \frac{dZ(t)}{dt}; \frac{d^2Z(t)}{dt^2}; \ldots; \frac{d^kZ(t)}{dt^k}
+        \tag{2.1}
+\end{equation}\]</span></p>
+<p>Por otro lado, suponiendo el caso del tiempo en forma discreta, es decir, con <span class="math inline">\(t = \ldots, -2, -1, 0, 1, 2, \ldots\)</span>, entonces el comportamiento de la serie de variables dadas por <span class="math inline">\(Z_t\)</span>, la cual se puede expresar como:</p>
+<p><span class="math display" id="eq:Diff1">\[\begin{equation}
+    \Delta Z_t; \Delta^2 Z_t; \ldots; \Delta^k Z_t
+    \tag{2.2}
+\end{equation}\]</span></p>
+<p>Observemos que una forma técnicamente más correcta es escribir las expresiones anteriores como:</p>
+<p><span class="math display" id="eq:Diff2">\[\begin{equation}
+    \frac{\Delta Z_t}{\Delta t}; \frac{\Delta^2 Z_t}{\Delta t^2}; \ldots; \frac{\Delta^k Z_t}{\Delta t^k}
+    \tag{2.3}
+\end{equation}\]</span></p>
+<p>No obstante, no pasa desapercibido que <span class="math inline">\(\Delta t = 1\)</span>, por lo que resultan equivalentes ambos conjuntos de expresiones <a href="elementos-de-ecuaciones-en-diferencia.html#eq:Diff1">(2.2)</a> y <a href="elementos-de-ecuaciones-en-diferencia.html#eq:Diff2">(2.3)</a>.</p>
+<div id="ecuaciones-en-diferencia-lineales-de-primer-orden" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Ecuaciones en Diferencia Lineales de Primer Orden</h3>
+<p>El primer caso que se suele estudiar en relación a Ecuaciones en Diferencia es el de las Ecuaciones en Diferencia Lineales de Primer Orden. Al respecto, al igual que en el caso continúo, las variaciones de la variable <span class="math inline">\(Z_t\)</span> se pueden expresar como se ilustra en el siguiente ejemplo. Consideremos la siguiente ecuación:</p>
+<p><span class="math display" id="eq:EDPO">\[\begin{equation}
+    Z_t = a_0 + a_1 Z_{t-1}
+    \tag{2.4}
+\end{equation}\]</span></p>
+<p>Donde, <span class="math inline">\(t = \ldots, -2, -1, 0, 1, 2, \ldots\)</span>, y <span class="math inline">\(a_0\)</span> y <span class="math inline">\(a_1 \neq 0\)</span> son números reales constantes. De (<a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDPO">(2.4)</a> podememos despejar la variable <span class="math inline">\(Z_{t-1}\)</span> y obtener una forma de ecuación en diferencia:
+<span class="math display" id="eq:EDPO2">\[\begin{equation}
+    Z_t - a_1 Z_{t-1} = a_0
+    \tag{2.5}
+\end{equation}\]</span></p>
+<p>Ahora denotemos a <span class="math inline">\(L Z_t = Z_{t-1}\)</span>, es decir, mediante el operador <span class="math inline">\(L\)</span> se puede rezagar una variable dada. En general, podemos decir que el operador tiene dos propiedades, la primera es que es lineal en el sentido de que abre sumas y saca escalares como se muestra en la siguiente expresión para el caso de un (1) rezago:</p>
+<p><span class="math display" id="eq:E1Lag">\[\begin{equation}
+    L(\alpha Z_{t} + \beta) = \alpha Z_{t-1} + \beta
+    \tag{2.6}
+\end{equation}\]</span></p>
+<p>Donde <span class="math inline">\(\alpha, \beta \in \mathbb{R}\)</span> y <span class="math inline">\(\alpha, \beta \neq 0\)</span>. Otro reesultado implícito en esta primera propiedad es que el operador rezago aplicado a cualquier escalar dará como resultado el escalar, puesto que este es una constante sin importa el momento <span class="math inline">\(t\)</span> en el cual se encuentre la variable <span class="math inline">\(Z\)</span>.</p>
+<p>La segunda propiedad del operador es que se puede aplicar de forma consecutiva a una misma variable. Es decir, <span class="math inline">\(L ( Z_{t-1}) = L L Z_{t} = L^2 Z_{t}\)</span>, por lo que en general tendremos: <span class="math inline">\(L^p Z_t = Z_{t-p}\)</span> (con <span class="math inline">\(p \in \mathbb{Z}\)</span>). Así, en el caso de p rezagos la propiedad de linealidad del operador rezago será:</p>
+<p><span class="math display" id="eq:LinProp">\[\begin{equation}
+    L^p (\alpha Z_{t} + \beta) = \alpha Z_{t-p} + \beta
+   \tag{2.7}
+\end{equation}\]</span></p>
+<p>Dicho lo anterio podemos escribir la solución general de <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDPO2">(2.5)</a> como:</p>
+<p><span class="math display" id="eq:PROC01">\[\begin{eqnarray}
+    Z_t - a_1 L Z_t &amp; = &amp; a_0 \nonumber \\
+    (1 - a_1 L)Z_t &amp; = &amp; a_0 \nonumber \\
+    Z_t &amp; = &amp; a_0 \frac{1}{1 - a_1 L} + s a^t_1 \nonumber \\
+    Z_t &amp; = &amp; a_0 \frac{1}{1 - a_1} + s a^t_1
+    \tag{2.8}
+\end{eqnarray}\]</span></p>
+<p>Donde <span class="math inline">\(a_1 \neq 1\)</span> y <span class="math inline">\(t = \ldots, -2, -1, 0, 1, 2, \ldots\)</span>. Notése que la aplicación del operador rezago <span class="math inline">\(L\)</span> a la constante <span class="math inline">\(a_1\)</span> dará como resultado el valor de la misma constante, ya que ésta no depende del momento <span class="math inline">\(t\)</span> en el cuál observemos a la variable <span class="math inline">\(Z_t\)</span>. En la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:PROC01">(2.8)</a> se adiciona un término <span class="math inline">\(s a^t_1\)</span> que permite ubicar la trayectoria inicial de la solución de la ecuación. El componente no significa un cambio respecto de la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDPO2">(2.5)</a> original, ya que si buscaramos reconstruir a ésta ecuación tendríamos:
+<span class="math display">\[\begin{eqnarray}
+    (1 - a_1 L) s a^t_1 &amp; = &amp; s a^t_1 - a_1 s L a^{t}_1 \nonumber \\
+    &amp; = &amp; s a^t_1 - a_1 s a^{t - 1}_1 \nonumber \\
+    &amp; = &amp; s a^t_1 - s a^t_1 \nonumber \\
+    &amp; = &amp; 0 \nonumber
+\end{eqnarray}\]</span></p>
+<p>La ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:PROC01">(2.8)</a> se suele interpretar como la solución de largo plazo. Ahora demostraremos por qué es cierta la ecuación y discutiremos algunas condiciones que se deben observar en esta solución para que sea una solución convergente. No obstante, primero discutiremos un método indirecto e incompleto para demostrar el resultado, dicho método es conocido como el método iterativo. Plantearemos las siguientes ecuaciones partículares donde suponemos la existencia del valor inicial <span class="math inline">\(Z_0\)</span> del proceso:</p>
+<p><span class="math display">\[\begin{equation*}
+    Z_1 = a_0 + a_1 Z_0
+\end{equation*}\]</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+Z_2 &amp; = &amp; a_0 + a_1 Z_1 \\
+    &amp; = &amp; a_0 + a_1 (a_0 + a_1 Z_0) \\
+    &amp; = &amp; a_0 +  a_0 a_1 + a^2_1 Z_0 \\
+    &amp; = &amp; a_0 (1 + a_1) + a^2_1 Z_0
+\end{eqnarray*}\]</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+Z_3 &amp; = &amp; a_0 + a_1 Z_2 \\
+    &amp; = &amp; a_0 + a_1 (a_0 +  a_0 a_1 + a^2_1 Z_0) \\
+    &amp; = &amp; a_0 +  a_0 a_1 + a_0 a^2_1 + a^3_1 Z_0 \\
+    &amp; = &amp; a_0 (1 + a_1 + a^2_1) + a^3_1 Z_0
+\end{eqnarray*}\]</span></p>
+<p>De lo anterior se puede inferir que el método iterativo convergerá hacia una expresión como la siguiente en el momento <span class="math inline">\(t\)</span>:</p>
+<p><span class="math display" id="eq:SUM">\[\begin{eqnarray}
+Z_t &amp; = &amp; a_0 + a_1 Z_{t-1} \nonumber \\
+    &amp; = &amp; a_0 (1 + a_1 + a^2_1 + \ldots + a^{t-1}_1) + a^t_1 Z_0 \nonumber \\
+    &amp; = &amp; a_0 \sum^{t-1}_{i = 0}{a^i_1} + a^t_1 Z_0
+    \tag{2.9}
+\end{eqnarray}\]</span></p>
+<p>Donde, es necesario que en la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SUM">(2.9)</a> se cumpla que <span class="math inline">\(\lvert{a_1}\lvert &lt; 1\)</span> para que la suma sea convergente –más adelante detallaremos esta afirmación–. A este tipo de ecuaciones se les puede denominar como lineales. Esto en razón de que ningún término de la variable <span class="math inline">\(Z\)</span> aparce elevado a ninguna potencia distinta a 1. También, son de primer orden, ya que el rezago de la variable <span class="math inline">\(Z\)</span> es sólo de un período.</p>
+<p>En adelante trabajaremos con ecuaciones en las que la variable <span class="math inline">\(Z\)</span> se encuentra rezagada en cualquiera de los siguientes casos:
+<span class="math display" id="eq:SUM0">\[\begin{equation}
+    Z_t, Z_{t-1}, Z_{t-2}, Z_{t-3}, \ldots, Z_{t-p}, \ldots
+    \tag{2.10}
+\end{equation}\]</span></p>
+<p>Por lo que diremos que en adelante el curso versará sobre ecuaciones en diferencia lineales y de cualquier orden <span class="math inline">\(p\)</span>.</p>
+<p>Retomando la ecuación () y considerando la parte de la suma de los términos de <span class="math inline">\(a^i_1\)</span>, de tal forma que buscaremos dar una expresión más compresible a dicho término. Definamos la siguiente expresión como:
+<span class="math display" id="eq:St1">\[\begin{equation}
+    S_{t-1} = \sum^{t-1}_{i = 0}{a^i_1}
+    \tag{2.11}
+\end{equation}\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(S_t\)</span> estaría dado por la siguiente expresión:
+<span class="math display" id="eq:St">\[\begin{eqnarray}
+S_{t} &amp; = &amp; a_1 \sum^{t-1}_{i = 0}{a^i_1} \nonumber \\
+      &amp; = &amp; a_1 (1 + a_1 + a^2_1 + \ldots + a^{t-1}_1) \nonumber \\
+      &amp; = &amp; a_1 + a^2_1 + a^3_1 + \ldots + a^{t}_1 \nonumber \\
+      &amp; = &amp; a_1 S_{t-1}
+      \tag{2.12}
+\end{eqnarray}\]</span></p>
+<p>Tomando los dos resultados de las ecuaciones <a href="elementos-de-ecuaciones-en-diferencia.html#eq:St1">(2.11)</a> y <a href="elementos-de-ecuaciones-en-diferencia.html#eq:St">(2.12)</a> anteriores, podemos expresar que si a <span class="math inline">\(S_{t-1}\)</span> le restamos <span class="math inline">\(S_t\)</span>, y desarrollando ambos lados de la ecuación anterior podemos obtener:</p>
+<p><span class="math display">\[\begin{eqnarray}
+    S_{t-1} - a_1 S_{t-1} &amp; = &amp; S_{t-1} - S_{t} \nonumber \\
+    (1 - a_1) S_{t-1} &amp; = &amp; (1 + a_1 + a^2_1 + \ldots + a^{t-1}_1) - (a_1 + a^2_1 + a^3_1 + \ldots + a^{t}_1) \nonumber \\
+    (1 - a_1) S_{t-1} &amp; = &amp; 1 - a^{t}_1 \nonumber
+\end{eqnarray}\]</span></p>
+<p>Así, podemos concluir que:
+<span class="math display" id="eq:SUM2">\[\begin{equation}
+    S_{t-1} = \frac{1 - a^{t}_1}{1 - a_1}
+    \tag{2.13}
+\end{equation}\]</span></p>
+<p>Conjuntando éste último resultado de la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SUM2">(2.13)</a> con la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SUM">(2.9)</a> tenemos la siguiente solución por el método de iteración:</p>
+<p><span class="math display" id="eq:SOLITER">\[\begin{equation}
+    Z_t = a_0 \left( \frac{1 - a^{t}_1}{1 - a_1} \right) + a^t_1 Z_0
+    \tag{2.14}
+\end{equation}\]</span></p>
+<p>De esta forma la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SOLITER">(2.14)</a> es una solición para la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SUM">(2.9)</a>, que es una ecuación de un proceso de una Ecuación en Diferencia plantenado en la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDPO">(2.4)</a>. Está solución aún no es general, en el sentido de que sea válida para cualquiel tipo de proceso: convergente o divergente. Dicha convergencia o divengencia estará determinada por el paramétro <span class="math inline">\(a_1\)</span>. No debe pasar desapercibido que cuando <span class="math inline">\(t \rightarrow \infty\)</span> o cuando la muestra es muy grande (lo que es equivalente), podemos decir que la solución solo puede converger a la siguiente expresión cuando se considera que <span class="math inline">\(|a_1| &lt; 1\)</span>:
+<span class="math display" id="eq:trayec">\[\begin{equation}
+    Z_t = a_0 \left( \frac{1}{1 - a_1} \right)
+    \tag{2.15}
+\end{equation}\]</span></p>
+<p>Retomemos ahora el caso general descrito en la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:PROC01">(2.8)</a> y determinemos una solución general en la cual <span class="math inline">\(a_1 \neq 1\)</span> y <span class="math inline">\(t = \ldots, -2, -1, 0, 1, 2, \ldots\)</span>. Para ello observemos que el siguiente componente en la ecuación mencionada se puede interpretar como la suma infinita de términos descritos como:
+<span class="math display">\[\begin{eqnarray}
+    \frac{1}{1 - a_1} &amp; = &amp; 1 + a_1 + a_1^2 + \ldots + a_1^t + \ldots \nonumber \\
+    &amp; = &amp; \sum_{i = 0}^{\infty} a_1^{i}
+    (\#(eq:SUMINF)
+\end{eqnarray}\]</span></p>
+<p>Donde claramente es necesario que <span class="math inline">\(|a_1| &lt; 1\)</span>. Por lo tanto, sólo faltaría determinar el valor de la constante <span class="math inline">\(s\)</span> en la ecuación () de la siguiente forma, supongamos que observamos el proceso en el momento inicial, por lo que es posible determinar el valor de la constante conociendo el valor inicial del proceso como sigue:
+<span class="math display" id="eq:Z0">\[\begin{equation}
+    Z_0 = a_0 \frac{1}{1 - a_1} + s
+\tag{2.16}
+\end{equation}\]</span></p>
+<p>De la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:Z0">(2.16)</a> tenemos que:
+<span class="math display" id="eq:eqs">\[\begin{equation}
+    s = Z_0 - a_0 \frac{1}{1 - a_1}
+\tag{2.17}
+\end{equation}\]</span></p>
+<p>Así, juntando la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:PROC01">(2.8)</a> y ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:eqs">(2.17)</a> tenemos la expresión:</p>
+<p><span class="math display" id="eq:SOLGEN">\[\begin{equation}
+    Z_t = a_0 \frac{1 - a^t_1}{1 - a_1} + a^t_1 Z_0
+\tag{2.18}
+\end{equation}\]</span></p>
+<p>No debe pasar desapercibido que está solución es la misma que la mostrada en la ecuación (<a href="elementos-de-ecuaciones-en-diferencia.html#eq:SOLITER">(2.14)</a>, por lo que en realidad ambas ecuaciones son una solución general indistintamente entre las ecuaciones <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SOLITER">(2.14)</a> y @ref(eq:SOL_GEN). Ambas convergen a la expresión como la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:trayec">(2.15)</a>, con la misma condición de convergencia <span class="math inline">\(|a_1| &lt; 1\)</span>. Para ilustrar estas ecuaciones veámos algunos ejemplos al respecto.</p>
+<p>Consideremos que tenemos un proceso <span class="math inline">\(Z_t\)</span> que es descrito por una ecuación en diferencia lineal de primer orden dada por:</p>
+<p><span class="math display" id="eq:ex1">\[\begin{equation}
+    Z_t = 2 + 0.9 Z_{t-1}
+\tag{2.19}
+\end{equation}\]</span></p>
+<p>Siguiendo la expresión mostrada en la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SOLGEN">(2.18)</a>, obtenemos la expresión:
+<span class="math display" id="eq:ex2">\[\begin{equation}
+    Z_t = 2 \left( \frac{1 - 0.9^{t}}{1 - 0.9} \right) + 0.9^t Z_0
+\tag{2.20}
+\end{equation}\]</span></p>
+<p>Donde asumiremos que el valor inicial es <span class="math inline">\(Z_0 = 10\)</span> y que la expresión debe converger al valor de 20, cuando <span class="math inline">\(t\)</span> es muy grande o tiende a infinito. De forma similar tomemos otro ejemplo, en el cual asumimos la siguiente expresión:
+<span class="math display" id="eq:ex3">\[\begin{equation}
+    Z_t = 2 - 0.5 Z_{t-1}
+\tag{2.21}
+\end{equation}\]</span></p>
+<p>Siguiendo la expresión mostrada en la ecuación (), obtenemos:</p>
+<p><span class="math display" id="eq:ex4">\[\begin{equation}
+    Z_t = 2 \left( \frac{1 - (-0.5)^{t}}{1 + 0.5} \right) + (-0.5)^t Z_0
+\tag{2.22}
+\end{equation}\]</span></p>
+<p>Donde asumiremos que el valor inicial es <span class="math inline">\(Z_0 = 10\)</span> y que la ecuación converge al valor de <span class="math inline">\(1.3333333 \ldots\)</span>, cuando <span class="math inline">\(t\)</span> es muy grande o tiende a infinito. Ahora simulemos el comportamiento de ambos procesos y estableceremos los resultados del Cuadro . Notemos que el segundo proceso converge de una forma más rapida que el primero. El Cuadro  se ilustra en las siguientes dos Figura  y Figura .</p>
+
+</div>
+</div>
+<div id="b-operadores-de-rezago-y-sus-representaciones" class="section level2">
+<h2><span class="header-section-number">2.2</span> b) Operadores de rezago y sus representaciones</h2>
+</div>
+<div id="c-representación-de-algunos-procesos-divergentes" class="section level2">
+<h2><span class="header-section-number">2.3</span> c) Representación de algunos procesos divergentes</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="procesos-estacionarios-univariados.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Notas de Clase.pdf", "Notas de Clase.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

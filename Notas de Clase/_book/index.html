@@ -24,7 +24,7 @@
 <meta name="author" content="Benjamín Oliva &amp; Omar Alfaro-Rivera" />
 
 
-<meta name="date" content="2021-08-26" />
+<meta name="date" content="2021-08-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -133,7 +133,7 @@
 <div id="header">
 <h1 class="title">Notas de Clase: Series de Tiempo</h1>
 <p class="author"><em>Benjamín Oliva &amp; Omar Alfaro-Rivera</em></p>
-<p class="date"><em>2021-08-26</em></p>
+<p class="date"><em>2021-08-28</em></p>
 </div>
 <div id="introducción" class="section level1">
 <h1><span class="header-section-number">Capítulo 1</span> Introducción</h1>
@@ -205,9 +205,9 @@ enfoques antes mencionadas es la Figura <a href="index.html#fig:fig1">1.1</a>. E
 del indicador, salvo por la crisis global de 2008 y la reciente crisis causada
 por la Covid-19.</p>
 <div class="figure" style="text-align: center"><span id="fig:fig2"></span>
-<img src="Notas-de-Clase_files/figure-html/fig2-1.png" alt="Ïndice de Confianza del Consumidor (ICC): Geeral y resultado de ¿Cómo considera usted la situación economica del país hoy en día comparda con la de hace 12 meses? (puntos), Ene.2002-may.2021" width="672" />
+<img src="Notas-de-Clase_files/figure-html/fig2-1.png" alt="índice de Confianza del Consumidor (ICC): General y resultado de ¿Cómo considera usted la situación economica del país hoy en día comparada con la de hace 12 meses? (puntos), Ene.2002-may.2021" width="672" />
 <p class="caption">
-Figure 1.2: Ïndice de Confianza del Consumidor (ICC): Geeral y resultado de ¿Cómo considera usted la situación economica del país hoy en día comparda con la de hace 12 meses? (puntos), Ene.2002-may.2021
+Figure 1.2: índice de Confianza del Consumidor (ICC): General y resultado de ¿Cómo considera usted la situación economica del país hoy en día comparada con la de hace 12 meses? (puntos), Ene.2002-may.2021
 </p>
 </div>
 <p>Por el contrario, el IGAE de las actividades primarias muestra una presencia
@@ -217,11 +217,59 @@ en las actividades primarias, cuya producción depende de eventos que son
 ciclícos agrícolas asociados con el clima u otros factores determinantes de la
 oferta de productos agrícolas. Otro factor que puede incluir en el indicador
 son elementos de demanda, más que los de oferta. Por ejemplo, el consumo
-de alimentos típicos de algunas temporadas del a~no.</p>
-<p>Como segundo ejemplo, en la Figura 2.2 se ilustra la evolución reciente
-del índice de Confianza del Consumidor (ICC) en dos de sus versiones: i) el
-Índice global y ii) el Índice de confianza de los consumidores cuando estos
-consideran la situación actual en la economía en relación el año anterior.</p>
+de alimentos típicos de algunas temporadas del año.</p>
+<p>Como segundo ejemplo, en la Figura <a href="index.html#fig:fig2">1.2</a> se ilustra la evolución reciente del índice de Confianza del Consumidor (ICC) en dos de sus versiones: i) el Índice global y ii) el Índice de confianza de los consumidores cuando estos consideran la situación actual en la economía en relación el año anterior.</p>
+<p>Destacamos que el ICC mide las expectativas de los consumidores en
+razón de la información pasada y de la esperada, segun dichos consumidores.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig3"></span>
+<img src="Notas-de-Clase_files/figure-html/fig3-1.png" alt="índice de Precios y Cotizaciones de la Bolsa Mexicana de Valores (Panel Derecho) y Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera, pesos por dólar (Panel izquierdo), Ene.2002-May.2021 " width="672" />
+<p class="caption">
+Figure 1.3: índice de Precios y Cotizaciones de la Bolsa Mexicana de Valores (Panel Derecho) y Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera, pesos por dólar (Panel izquierdo), Ene.2002-May.2021
+</p>
+</div>
+<p>Así, es probable que las dos series de tiempo exhiban un gran peso para los
+eventos pasados, pero a la vez, un componente -probablemente menor- del
+componente de frecuencia. Esto último en razón de que los consumidores
+suelen considerar en sus expectativas de consumo los periódos cíclicos de la
+economía: temporadas navideñaas, pagos de colegiaturas, etc. Este sengundo
+ejemplo tambien ilustra que la confianza del consumidor no necesariamente
+está directamente correlacionada con el desempeño de la economía.</p>
+<p>Como tercer ejemplo se muestra la evolución de dos series. La Figura <a href="index.html#fig:fig3">1.3</a> ilustra el comportamiento reciente de dos indicadores que son referencia para los inversionistas. Por un lado, se ubica el índice de Precios y Cotizaciones de la BMV (IPC), el cuál refleja el valor de las acciones de empresas que cotizan en la BMV y el volumen de acciones comercializadas, en conjunto. De esta forma, se ha interpretado que el IPC refleja el rendimiento del capital promedio invertido en las empresas que cotizan en la BMV.</p>
+<p>Por otro lado, en la Figura <a href="index.html#fig:fig3">1.3</a> se presenta la evolución del Tipo de Cambio (TDC){indicador financiero que se suele utilizar como medio de reserva de valor. Esto, en razón de que el TDC es conocido como un instrumento que en momentos de crisis toma valores contraciclicos de la economía mexicana. No obstante, ambos indicadores no son comparables. Para hacerlos comparbles
+en la Figura <a href="index.html#fig:fig4">1.4</a> se presentan en versión índice con una base en el primer mes de la muestra.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig4"></span>
+<img src="Notas-de-Clase_files/figure-html/fig4-1.png" alt="Índice del índice de Precios y Cotizaciones de la Bolsa Mexicana de Valores (Panel Derecho) e Índice del Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera (ambos enero de 2002 = 100), pesos por dólar (Panel izquierdo), Ene.2002-May.2021 " width="672" />
+<p class="caption">
+Figure 1.4: Índice del índice de Precios y Cotizaciones de la Bolsa Mexicana de Valores (Panel Derecho) e Índice del Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera (ambos enero de 2002 = 100), pesos por dólar (Panel izquierdo), Ene.2002-May.2021
+</p>
+</div>
+<p>En la perspectiva de la Figura <a href="index.html#fig:fig4">1.4</a> se puede apreciar que el TDC no es tan rentable, ya que una inversión en la BMV mediante el IPC, en el largo plazo, muestra más redimientos. Asimismo, la Figura <a href="index.html#fig:fig4">1.4</a> ilustra que en ambas series se observa un dominio de la condición de tiempo y no uno de frecuencia. Es decir, tanto el IPC como el TDC no responden a condiciones como ciclos o temporadas que si son observables en actividades económicas como las
+primarias.</p>
+<p>Finalmente, la Figura <a href="index.html#fig:fig5">1.5</a> ilustra un característica que también resulta de gran interés en el analásis de series de tiempo: los datos de alta frecuencia y de comportamiento no regular. Como se puede observar, en la Figura <a href="index.html#fig:fig5">1.5</a> se muestran las diferencias logarítmicas de las series de IGAE de la actividad total, el IPC y el TDC.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig5"></span>
+<img src="Notas-de-Clase_files/figure-html/fig5-1.png" alt="Tasas de Crecimiento mensuales (diferencias logarítmicas) de Indicador Global de la Actividad Económica, Índice de Precios y Cotizaciones de la Bolsa Mexicana de Valores (Panel Derecho) y Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera, Ene.2002-May.2021 " width="672" />
+<p class="caption">
+Figure 1.5: Tasas de Crecimiento mensuales (diferencias logarítmicas) de Indicador Global de la Actividad Económica, Índice de Precios y Cotizaciones de la Bolsa Mexicana de Valores (Panel Derecho) y Tipo de Cambio para Solventar Obligaciones en Moneda Extranjera, Ene.2002-May.2021
+</p>
+</div>
+<p>Dichas diferencia se pueden interpretar como una tasa de crecimiento de las series por las siguientes razones. Consideremos una serie de tiempo dada por <span class="math inline">\(y_t\)</span>, cuya versión logarítmica es <span class="math inline">\(ln(y_t\)</span>). De esta forma, la diferencia logarítmica esta dada por la ecuación <a href="index.html#eq:difflog">(1.1)</a>:</p>
+<p><span class="math display" id="eq:difflog">\[\begin{equation}
+   \Delta ln(y_t) = ln(y_t) - ln(y_{t-1}) = ln \left( \frac{y_t}{y_{t-1}} \right)
+   \tag{1.1}
+\end{equation}\]</span></p>
+<p>Ahora bien, si retomamos la definición de tasa de crecimiento (TC) de una serie de tiempo <span class="math inline">\(y_t\)</span> entre el periodo <span class="math inline">\(t\)</span> y <span class="math inline">\(t-1\)</span> podemos obtener que:</p>
+<p><span class="math display" id="eq:TC">\[\begin{equation}
+    TC = \frac{y_t - y_{t-1}}{y_{t-1}} = \frac{y_t}{y_{t-1}} - 1
+    \tag{1.2}
+\end{equation}\]</span></p>
+<p>De esta forma, si tomamos el logarítmo de la expresión de la ecuación <a href="index.html#eq:TC">(1.2)</a> obtenemos la siguiente aproximación:</p>
+<p><span class="math display" id="eq:TCDiffLog">\[\begin{equation}
+    \frac{y_t}{y_{t-1}} -1  \approx ln \left( \frac{y_t}{y_{t-1}} \right) = ln(y_t) - ln(y_{t-1})
+    \tag{1.3}
+\end{equation}\]</span></p>
+<p>La ecuación <a href="index.html#eq:TCDiffLog">(1.3)</a> es cierta cuando los valores de <span class="math inline">\(y_t\)</span> y <span class="math inline">\(y_{t-1}\)</span> son muy parecidos, es decir, cuando las variaciones no son tan abruptas. Otra forma de interpretar la ecuación <a href="index.html#eq:TCDiffLog">(1.3)</a> es que para tasas de crecimiento pequeñas, se puede utilizar como una buena aproximación a la diferencia logarítmica mostrada en la ecuación <a href="index.html#eq:difflog">(1.1)</a>.</p>
+<p>En la Figura <a href="index.html#fig:fig5">1.5</a> se reportan las diferencias logarítmicas del IGAE, IPC y TDC, todos, como una media de distitntos tipos de redimientos. Es decir, podemos decir que un capitalista promedio (suponiendo que solo puede invertir en la actividad económica, en la bolsa o en el dólar), puede observar que le es más redituable en función de sus preferencias.</p>
+<p>Notése que la dinámica de las variaciones de cada una de las series es significativamente diferente. Destaca que el TDC es una de las variables que, en general, no muestra grandes cambios a lo largo del tiempo. No obstante, se han observado cambios radicales, cuando menos en el año 2008. Lo anterior, son caracteristicas que se han observado para el IPC. En cambio, el IGAE muestra un comportamiento más estable o estacionario.</p>
 
 </div>
 </div>
