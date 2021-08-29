@@ -24,7 +24,7 @@
 <meta name="author" content="Benjamín Oliva &amp; Omar Alfaro-Rivera" />
 
 
-<meta name="date" content="2021-08-28" />
+<meta name="date" content="2021-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -78,9 +78,11 @@
 <li class="chapter" data-level="2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html"><i class="fa fa-check"></i><b>2</b> Elementos de Ecuaciones en Diferencia</a><ul>
 <li class="chapter" data-level="2.1" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#a-ecuaciones-en-diferencia-para-procesos-deterministas"><i class="fa fa-check"></i><b>2.1</b> a) Ecuaciones en Diferencia para procesos deterministas</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#ecuaciones-en-diferencia-lineales-de-primer-orden"><i class="fa fa-check"></i><b>2.1.1</b> Ecuaciones en Diferencia Lineales de Primer Orden</a></li>
+<li class="chapter" data-level="2.1.2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#ecuaciones-en-diferencia-lineales-de-segundo-orden-y-de-orden-superior"><i class="fa fa-check"></i><b>2.1.2</b> Ecuaciones en Diferencia Lineales de Segundo Orden y de orden superior</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#b-operadores-de-rezago-y-sus-representaciones"><i class="fa fa-check"></i><b>2.2</b> b) Operadores de rezago y sus representaciones</a></li>
-<li class="chapter" data-level="2.3" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#c-representación-de-algunos-procesos-divergentes"><i class="fa fa-check"></i><b>2.3</b> c) Representación de algunos procesos divergentes</a></li>
+<li class="chapter" data-level="2.2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#operador-de-rezago-l"><i class="fa fa-check"></i><b>2.2</b> Operador de rezago L</a></li>
+<li class="chapter" data-level="2.3" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#b-operadores-de-rezago-y-sus-representaciones"><i class="fa fa-check"></i><b>2.3</b> b) Operadores de rezago y sus representaciones</a></li>
+<li class="chapter" data-level="2.4" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#c-representación-de-algunos-procesos-divergentes"><i class="fa fa-check"></i><b>2.4</b> c) Representación de algunos procesos divergentes</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html"><i class="fa fa-check"></i><b>3</b> Procesos Estacionarios Univariados</a><ul>
 <li class="chapter" data-level="3.1" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html#a-procesos-autoregresivos-arp"><i class="fa fa-check"></i><b>3.1</b> a) Procesos autoregresivos <span class="math inline">\(AR(p)\)</span></a></li>
@@ -302,15 +304,499 @@ S_{t} &amp; = &amp; a_1 \sum^{t-1}_{i = 0}{a^i_1} \nonumber \\
     Z_t = 2 \left( \frac{1 - (-0.5)^{t}}{1 + 0.5} \right) + (-0.5)^t Z_0
 \tag{2.22}
 \end{equation}\]</span></p>
-<p>Donde asumiremos que el valor inicial es <span class="math inline">\(Z_0 = 10\)</span> y que la ecuación converge al valor de <span class="math inline">\(1.3333333 \ldots\)</span>, cuando <span class="math inline">\(t\)</span> es muy grande o tiende a infinito. Ahora simulemos el comportamiento de ambos procesos y estableceremos los resultados del Cuadro . Notemos que el segundo proceso converge de una forma más rapida que el primero. El Cuadro  se ilustra en las siguientes dos Figura  y Figura .</p>
+<p>Donde asumiremos que el valor inicial es <span class="math inline">\(Z_0 = 10\)</span> y que la ecuación converge al valor de <span class="math inline">\(1.3333333 \ldots\)</span>, cuando <span class="math inline">\(t\)</span> es muy grande o tiende a infinito. Ahora simulemos el comportamiento de ambos procesos y estableceremos los resultados del Cuadro . Notemos que el segundo proceso converge de una forma más rapida que el primero. El Cuadro <a href="elementos-de-ecuaciones-en-diferencia.html#tab:table1">2.1</a> se ilustra en las siguientes dos Figura <a href="elementos-de-ecuaciones-en-diferencia.html#fig:fig1">2.1</a> y Figura <a href="elementos-de-ecuaciones-en-diferencia.html#fig:fig2">2.2</a>.</p>
+<table>
+<caption><span id="tab:table1">Table 2.1: </span>Dos ejemplos de Procesos de Ecuaciones Lineales de Primer Orden Convergentes</caption>
+<thead>
+<tr class="header">
+<th align="right">Tiempo</th>
+<th align="right"><span class="math inline">\(Z_t =2+0.9Z_{t-1}\)</span></th>
+<th align="right"><span class="math inline">\(Z_t = 2-0.5Z_{t-1}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">10.00000</td>
+<td align="right">10.000000</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">11.00000</td>
+<td align="right">-3.000000</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">11.90000</td>
+<td align="right">3.500000</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">12.71000</td>
+<td align="right">0.250000</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">13.43900</td>
+<td align="right">1.875000</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">14.09510</td>
+<td align="right">1.062500</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="right">14.68559</td>
+<td align="right">1.468750</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">15.21703</td>
+<td align="right">1.265625</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">15.69533</td>
+<td align="right">1.367188</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">16.12580</td>
+<td align="right">1.316406</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="right">16.51322</td>
+<td align="right">1.341797</td>
+</tr>
+<tr class="even">
+<td align="right">11</td>
+<td align="right">16.86189</td>
+<td align="right">1.329102</td>
+</tr>
+<tr class="odd">
+<td align="right">12</td>
+<td align="right">17.17570</td>
+<td align="right">1.335449</td>
+</tr>
+<tr class="even">
+<td align="right">13</td>
+<td align="right">17.45813</td>
+<td align="right">1.332275</td>
+</tr>
+<tr class="odd">
+<td align="right">14</td>
+<td align="right">17.71232</td>
+<td align="right">1.333862</td>
+</tr>
+<tr class="even">
+<td align="right">15</td>
+<td align="right">17.94109</td>
+<td align="right">1.333069</td>
+</tr>
+<tr class="odd">
+<td align="right">96</td>
+<td align="right">19.99960</td>
+<td align="right">1.333333</td>
+</tr>
+<tr class="even">
+<td align="right">97</td>
+<td align="right">19.99964</td>
+<td align="right">1.333333</td>
+</tr>
+<tr class="odd">
+<td align="right">98</td>
+<td align="right">19.99967</td>
+<td align="right">1.333333</td>
+</tr>
+<tr class="even">
+<td align="right">99</td>
+<td align="right">19.99970</td>
+<td align="right">1.333333</td>
+</tr>
+<tr class="odd">
+<td align="right">100</td>
+<td align="right">19.99973</td>
+<td align="right">1.333333</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span id="fig:fig1"></span>
+<img src="Notas-de-Clase_files/figure-html/fig1-1.png" alt="Evolución del proceso dado por $Z_t =2+0.9Z_{t-1}$" width="672" />
+<p class="caption">
+Figure 2.1: Evolución del proceso dado por <span class="math inline">\(Z_t =2+0.9Z_{t-1}\)</span>
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:fig2"></span>
+<img src="Notas-de-Clase_files/figure-html/fig2-1.png" alt="Evolución del proceso dado por $Z_t =2-0.5Z_{t-1}$" width="672" />
+<p class="caption">
+Figure 2.2: Evolución del proceso dado por <span class="math inline">\(Z_t =2-0.5Z_{t-1}\)</span>
+</p>
+</div>
+</div>
+<div id="ecuaciones-en-diferencia-lineales-de-segundo-orden-y-de-orden-superior" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Ecuaciones en Diferencia Lineales de Segundo Orden y de orden superior</h3>
+<p>Como un segundo caso a estudiar se ubica el caso de las Ecuaciones en Diferencia Lineales de Segundo Orden y de orden superior. Primero, sea una ecuación como la siguiente, la cual es lineal y de segundo orden, ya que tiene asociado un término de <span class="math inline">\(Z_t\)</span> rezagado dos periódos:
+<span class="math display" id="eq:EDSO">\[\begin{equation}
+    Z_t = a_0 + a_1 Z_{t-1} + a_2 Z_{t-2}
+    \tag{2.23}
+\end{equation}\]</span></p>
+<p>Donde <span class="math inline">\(t = \ldots, -2, -1, 0, 1, 2, \ldots\)</span> y <span class="math inline">\(a_1, a_2 \neq 0\)</span>. Reordenando la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDSO">(2.23)</a> podemos escribir:
+<span class="math display" id="eq:EDSOSOL">\[\begin{eqnarray}
+    Z_t - a_1 Z_{t-1} - a_2 Z_{t-2} &amp; = &amp; a_0 \nonumber \\
+    Z_t - a_1 L Z_{t} - a_2 L^2 Z_{t} &amp; = &amp; a_0 \nonumber \\
+    (1 - a_1 L - a_2 L^2)Z_t &amp; = &amp; a_0 
+    \tag{2.24}
+\end{eqnarray}\]</span></p>
+<p>Así, la solución general propuesta para la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDSOSOL">(2.24)</a> es la siguiente, la cual es una forma analóga a una Ecuación Lineal en Diferencia de Primer Orden:
+<span class="math display" id="eq:SOLGEN2">\[\begin{equation}
+    Z_t = \frac{a_0}{1 - a_1 - a_2} + s_1 g^t_1 + s_2 g^t_2
+    \tag{2.25}
+\end{equation}\]</span></p>
+<p>En donde <span class="math inline">\(s_1\)</span> y <span class="math inline">\(s_2\)</span> son constantes que se determinan mediante dos condiciones iniciales –por lo que para resolver este tipo de ecuaciones requerimos conocer dos condiciones iniciales–. Los valores de <span class="math inline">\(g_1\)</span> y <span class="math inline">\(g_2\)</span> están relacionados con los coeficientes <span class="math inline">\(a_1\)</span> y <span class="math inline">\(a_2\)</span>, de esta forma:</p>
+<p><span class="math display" id="eq:a1">\[\begin{equation}
+  a_1  =  g_1 + g_2
+  \tag{2.26}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:a2">\[\begin{equation}
+    a_2  =  - g_1 g_2
+    \tag{2.27}
+\end{equation}\]</span></p>
+<p>Lo anterior surge del siguiente procedimiento y recordando que siempre es posible descomponer una ecuación cuadrática en expresiones como las siguientes:
+<span class="math display" id="eq:eqcaracteristica">\[\begin{eqnarray}
+    (1 - a_1 L - a_2 L^2) &amp; = &amp; (1 - g_1 L)(1 - g_2 L) \nonumber \\
+    &amp; = &amp; 1 - g_1 L - g_2 L + g_1 g_2 L^2 \nonumber \\
+    &amp; = &amp; 1 - (g_1 + g_2) L + g_1 g_2 L^2
+    \tag{2.28}
+\end{eqnarray}\]</span></p>
+<p>Donde se observa la equivalencia mostrada en las ecuaciones <a href="elementos-de-ecuaciones-en-diferencia.html#eq:a1">(2.26)</a> y <a href="elementos-de-ecuaciones-en-diferencia.html#eq:a2">(2.27)</a>. Así, considerando la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SOLGEN2">(2.25)</a> tenemos que:
+<span class="math display">\[\begin{eqnarray}
+    (1 - a_1 L - a_2 L^2) Z_t &amp; = &amp; (1 - g_1 L)(1 - g_2 L) Z_t \nonumber \\
+    &amp; = &amp; a_0 + (1 - g_1 L)(1 - g_2 L) s_1 g^t_1 \nonumber \\
+    &amp;  &amp; + (1 - g_1 L)(1 - g_2 L) s_2 g^t_2
+\end{eqnarray}\]</span></p>
+<p>Por lo tanto, buscamos que para que el proceso sea equivalente y podamos interpretar que la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SOLGEN2">(2.25)</a> sea una solución general deberá pasar lo siguiente:
+<span class="math display">\[\begin{equation}
+    (1 - g_1 L) (1 - g_2 L) s_1 g^t_1 + (1 - g_1 L) (1 - g_2 L) s_2 g^t_2 = 0
+\end{equation}\]</span></p>
+<p>O, escrito de otra forma:
+<span class="math display">\[\begin{equation}
+    (1 - g_1 L) s_1 g^t_1 = (1 - g_2 L) s_2 g^t_2 = 0
+\end{equation}\]</span></p>
+<p>Ahora determinemos cuáles son los valores <span class="math inline">\(g_1\)</span> y <span class="math inline">\(g_2\)</span> dados los valores <span class="math inline">\(a_1\)</span> y <span class="math inline">\(a_2\)</span> que nos permitan determinar si el proceso será convergente. Para ello debemos resolver la siguiente ecuación que se deriva de la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:eqcaracteristica">(2.28)</a>:</p>
+<p><span class="math display">\[\begin{equation}
+    1 - a_1 x - a_2 x^2 = (1 - g_1 x)(1 - g_2 x) = 0
+\end{equation}\]</span></p>
+<p>Donde, claramente existen dos raíces: <span class="math inline">\(x_1 = g^{-1}_1\)</span> y <span class="math inline">\(x_2 = g^{-1}_2\)</span>. Así, la solución estará dada por las raíces de la ecuación característica:</p>
+<p><span class="math display" id="eq:POL2">\[\begin{eqnarray}
+    1 - a_1 x - a_2 x^2 = 0 \nonumber \\
+    a_2 x^2 + a_1 x - 1 = 0
+    \tag{2.29}
+\end{eqnarray}\]</span></p>
+<p>Cuya solución es:
+<span class="math display">\[\begin{equation}
+    x = \frac{- a_1 \pm \sqrt{a^2_1 + 4 a_2}}{2 a_2}
+\end{equation}\]</span></p>
+<p>Es importante distinguir tres diferentes casos en relación con las raíces que surgen como solución de la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:POL2">(2.29)</a>, estos son:</p>
+<p><strong>Caso I</strong>. Si <span class="math inline">\(a^2_1 + 4 a_2 &gt; 0\)</span>, la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:POL2">(2.29)</a> proporcionará dos valores de raíces reales y distintos, eso es <span class="math inline">\(x_1 = g^{-1}_1 \neq x_2 = g^{-1}_2\)</span>. Si por ahora suponemos que <span class="math inline">\(|{g_1} &lt; 1|\)</span> y que <span class="math inline">\(|{g_2} &lt; 1|\)</span>, entonces tendremos que:
+<span class="math display">\[\begin{eqnarray}
+    (1 - g_1 L)^{-1} (1 - g_2 L)^{-1} a_0 &amp; =&amp;  \left( \sum^{\infty}_{j = 0}{g^j_1 L^j} \right) \left( \sum^{\infty}_{j = 0}{g^j_2 L^j} \right) a_0 \nonumber \\
+    &amp; = &amp; \left( \sum^{\infty}_{j = 0}{g^j_1} \right) \left( \sum^{\infty}_{j = 0}{g^j_2} \right) a_0 \nonumber \\
+    &amp; = &amp; \frac{a_0}{(1 - g_1)(1 - g_2)} \nonumber \\
+    &amp; = &amp; \frac{a_0}{1 - a_1 - a_2}
+\end{eqnarray}\]</span></p>
+<p>Esto último es el punto de equilibrio de la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SOLGEN2">(2.25)</a>; considerando que <span class="math inline">\(|{g_1} &lt; 1|\)</span> y que <span class="math inline">\(|{g_2} &lt; 1|\)</span> –notemos que los demás casos son divergentes, ya que la suma anterior nno connvergería–. De esta forma la solución de la ecuación estará dada por:
+<span class="math display" id="eq:Conver">\[\begin{equation}
+    \lim_{t \to \infty} Z_t = \frac{a_0}{1 - a_1 - a_2}
+    \tag{2.30}
+\end{equation}\]</span></p>
+<p><strong>Caso II</strong>. Si <span class="math inline">\(a_1^2 + 4a_2 &lt; 0\)</span> en la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:POL2">(2.29)</a>, entonces las raíces serán números complejos conjugados, es decir:
+<span class="math display">\[\begin{eqnarray}
+    g_i^{-1} &amp; = &amp; a \pm ib \\
+    g_i &amp; = &amp; u \pm iv 
+\end{eqnarray}\]</span></p>
+<p>Dichas raíces las podemos escribir en coordenadas polares como:
+<span class="math display">\[\begin{eqnarray}
+    g_1^{-1} &amp; = &amp; r e^{i \theta} = r (cos(\theta) + i sen(\theta)) \\
+    g_2^{-1} &amp; = &amp; r e^{-i \theta} = r (cos(\theta) - i sen(\theta))
+\end{eqnarray}\]</span>
+Donde: <span class="math inline">\(r = \sqrt{u^2 + v^2}\)</span>, a esta expresión también se le conoce como modulo. Alternativamente, podemos escribir que <span class="math inline">\(r = \sqrt{g_1 g_2}\)</span>. La única condición es que <span class="math inline">\(r &lt; 1\)</span> para que el proceso descrito en la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:SOLGEN2">(2.25)</a> sea convergente.</p>
+<p>Al igual que en el <strong>Caso I</strong>, el punto de equilibrio de la ecuación se debería ubicar al rededor <a href="elementos-de-ecuaciones-en-diferencia.html#eq:Conver">(2.30)</a>, siempre que <span class="math inline">\(r &lt; 1\)</span>, por lo que el factor que determina la convergencia es el modulo, ya que si el modulo es mayor a 1, el proceso será divergente, pero si es menor a 1 convergerá a <a href="elementos-de-ecuaciones-en-diferencia.html#eq:Conver">(2.30)</a>. Para ilustrar, el caso contrario es divergente puesto que representa trayentorias senoidales (oscilatorias) que sólo pueden converger si a medida que pasa el tiempo, las ondas son menos amplias.</p>
+<p><strong>Caso III</strong>. Ahora revisemos el caso en el que <span class="math inline">\(a_1^2 + 4a_2 = 0\)</span>, de esta forma las raíces serán identicas:
+<span class="math display">\[\begin{equation}
+    g = g_1^{-1} = g_2^{-1} = \frac{-a_1}{2 a_2}
+\end{equation}\]</span></p>
+<p>Así, el punto de equilibrio será dado por la solución descrita como:
+<span class="math display">\[\begin{eqnarray}
+    (1 - g L)^2 Z_t &amp; = &amp; a_0 \nonumber \\
+    Z_t &amp; = &amp; \frac{a_0}{(1 - g L)^2} + s_1 g^t + s_2 t g^t \nonumber \\
+    &amp; = &amp; a_0 \sum_{i = 0}^{\infty} (1 + i) g^j + s_1 g^t + s_2 t g^t
+\end{eqnarray}\]</span></p>
+<p>Donde la expresión amnterior es resultado de considerar el siguiente procedimiento. Sea:
+<span class="math display">\[\begin{eqnarray}
+    f(g) &amp; = &amp; \frac{1}{(1 - g)} = \sum_{j = 0}^{\infty} g^j \nonumber
+\end{eqnarray}\]</span></p>
+<p>Por lo que si hacemos la primer derivada del la expresión anterior tenemos que:
+<span class="math display">\[\begin{eqnarray}
+    f&#39;(g) &amp; = &amp; \frac{1}{(1 - g)^2} \nonumber \\
+    &amp; = &amp; \sum_{j = 0}^{\infty} j g^{j-1} \nonumber \\
+    &amp; = &amp; 0 + g^0 + 2 g^1 + 3 g^2 + \ldots \nonumber \\
+    &amp; = &amp; \sum_{j = 0}^{\infty} (1 + j) g^j \nonumber
+\end{eqnarray}\]</span></p>
+<p>Ahora veámos un ejemplo de una Ecuación Lineal en Diferencia de Segundo Orden. Supongamos la ecuación y el desarrollo siguientes:
+<span class="math display">\[\begin{eqnarray}
+    Z_t &amp; = &amp; 3 + 0.9 Z_{t-1} - 0.2 Z_{t-2} \nonumber \\
+    (1 - 0.9 L + 0.2 L^2) Z_t &amp; = &amp; 3 \nonumber
+\end{eqnarray}\]</span></p>
+<p>La solución dada por una ecuación similar a la expresión <a href="elementos-de-ecuaciones-en-diferencia.html#eq:POL2">(2.29)</a>, obtendríamos la solución dada por las ecuaciones equivalentes a:
+<span class="math display">\[\begin{eqnarray}
+    1 - 0.9 x + 0.2 x^2 = 0 \nonumber \\
+    - 0.2 x^2 + 0.9 x - 1 = 0 \nonumber
+\end{eqnarray}\]</span></p>
+<p>De donde las raíces del polinomio característico <span class="math inline">\(x_1 = g_1^{-1}\)</span> y <span class="math inline">\(x_2 = g_2^{-1}\)</span> se obtienen de la expresión dada por:
+<span class="math display">\[\begin{eqnarray}
+    x &amp; = &amp;\frac{-0.9 \pm \sqrt{0.81 + (4)(-0.2)}}{(2)(-0.2)} \nonumber \\
+    &amp; = &amp; \frac{0.9 \pm 0.1}{0.4} \nonumber
+\end{eqnarray}\]</span></p>
+<p>Dado que el componente <span class="math inline">\(a^2_1 + 4 a_2\)</span> es positivo, obtendremos dos raíces reales. Las raíces estarán dadas por <span class="math inline">\(x_1 = 2.5\)</span> y <span class="math inline">\(x_2 = 2.0\)</span>, de lo cual podemos determinar que <span class="math inline">\(g_1 = 0.4\)</span> y <span class="math inline">\(g_2 = 0.5\)</span>. De esta forma tenemos que <span class="math inline">\(|g_1| &lt; 1\)</span> y <span class="math inline">\(|g_2| &lt; 1\)</span>, así la ecuación converge a la expresión dada por las siguientes expresiones:
+<span class="math display">\[\begin{eqnarray}
+    Z_t &amp; = &amp; \frac{3}{1 - 0.9 L + 0.2 L^2} + s_1 (0.4)^t + s_2 (0.5)^t \nonumber \\
+    &amp; = &amp; \frac{3}{1 - 0.9 + 0.2} + s_1 (0.4)^t + s_2 (0.5)^t \nonumber \\
+    &amp; = &amp; \frac{3}{(1 - 0.4)(1 - 0.5)} + s_1 (0.4)^t + s_2 (0.5)^t \nonumber
+\end{eqnarray}\]</span></p>
+<p>Al final, la ecuación que describe la solución general será:
+<span class="math display">\[\begin{equation}
+    z_t = 10 + s_1 (0.4)^t + s_2 (0.5)^t
+\end{equation}\]</span></p>
+<p>Para determinar los valores de <span class="math inline">\(s_1\)</span> y <span class="math inline">\(s_2\)</span> necesitamos obtener dos valores iniciales de la ecuación para lo cual iniciaremos como <span class="math inline">\(t = 0\)</span> y luego obtenemos el valor de <span class="math inline">\(t = 1\)</span>, consideremos el valor de <span class="math inline">\(Z_0 = 0\)</span> y <span class="math inline">\(Z_1 = 50\)</span>:
+<span class="math display">\[\begin{eqnarray*}
+    Z_0 &amp; = &amp; 10 + s_1(0.4)^0  + s_2(0.5)^0 \\
+    0 &amp; = &amp; 10 + s_1 + s_2 \\
+    Z_1 &amp; = &amp; 10 + s_1(0.4)^1  + s_2(0.5)^1 \\
+    50 &amp; = &amp; 10 + 0.4 s_1 + 0.5 s_2
+\end{eqnarray*}\]</span></p>
+<p>Por lo que la solución es: <span class="math inline">\(s_1 = -450\)</span> y <span class="math inline">\(s_2 = 440\)</span>, de donde podemos expresar la ecuación como:
+<span class="math display" id="eq:Ejem01">\[\begin{equation}
+    Z_t = 10 - 450(0.4)^t + 440(0.5)^t
+\tag{2.31}
+\end{equation}\]</span></p>
+<p>La ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:Ejem01">(2.31)</a> anterior convergerá al valor de 10 cuando <span class="math inline">\(t \rightarrow \infty\)</span>. Para ilustrar la trayectoria de esta ecuación tomemos un cuadro similar al de los ejemplos anteriores. En el Cuadro <a href="elementos-de-ecuaciones-en-diferencia.html#tab:table2">2.2</a> y la Figura <a href="elementos-de-ecuaciones-en-diferencia.html#fig:fig3">2.3</a> mostramos los resultados de la trayectorua para 100 periodos.</p>
+<table>
+<caption><span id="tab:table2">Table 2.2: </span>Un ejemplo de proceso de Ecuación de Segundo Orden convengente</caption>
+<thead>
+<tr class="header">
+<th align="right">Tiempo</th>
+<th align="right"><span class="math inline">\(Z_t =10-450(0.4)^t+440(0.5)^t\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0.00000</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">50.00000</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">48.00000</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">36.20000</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">25.98000</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">19.14200</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="right">15.03180</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">12.70022</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">11.42384</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">10.74141</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="right">10.38250</td>
+</tr>
+<tr class="even">
+<td align="right">11</td>
+<td align="right">10.19597</td>
+</tr>
+<tr class="odd">
+<td align="right">12</td>
+<td align="right">10.09987</td>
+</tr>
+<tr class="even">
+<td align="right">13</td>
+<td align="right">10.05069</td>
+</tr>
+<tr class="odd">
+<td align="right">14</td>
+<td align="right">10.02565</td>
+</tr>
+<tr class="even">
+<td align="right">15</td>
+<td align="right">10.01294</td>
+</tr>
+<tr class="odd">
+<td align="right">96</td>
+<td align="right">10.00000</td>
+</tr>
+<tr class="even">
+<td align="right">97</td>
+<td align="right">10.00000</td>
+</tr>
+<tr class="odd">
+<td align="right">98</td>
+<td align="right">10.00000</td>
+</tr>
+<tr class="even">
+<td align="right">99</td>
+<td align="right">10.00000</td>
+</tr>
+<tr class="odd">
+<td align="right">100</td>
+<td align="right">10.00000</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span id="fig:fig3"></span>
+<img src="Notas-de-Clase_files/figure-html/fig3-1.png" alt="Evolución del proceso dado por $Z_t =3+0.9Z_{t-1}-0.2Z_{t-2}$" width="672" />
+<p class="caption">
+Figure 2.3: Evolución del proceso dado por <span class="math inline">\(Z_t =3+0.9Z_{t-1}-0.2Z_{t-2}\)</span>
+</p>
+</div>
+<p>Finalmente, discutiremos la solución para las Ecuaciones Lineales en Diferencia de Orden <span class="math inline">\(p\)</span>, donde <span class="math inline">\(p \geq 2\)</span>. En general una ecuación de este tipo se puede escribir como:
+<span class="math display" id="eq:EDOP">\[\begin{equation}
+    Z_t = a_0 + a_1 Z_{t-1} + a_2 Z_{t-2} + \ldots + a_p Z_{t-p}
+    \tag{2.32}
+\end{equation}\]</span></p>
+<p>Donde <span class="math inline">\(t = \ldots, -2, -1, 0, 1, 2, \ldots\)</span> y <span class="math inline">\(a_p \neq 0\)</span>. La ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDOP">(2.32)</a> se puede escribir como:
+<span class="math display" id="eq:EDOP2">\[\begin{eqnarray}
+    Z_t - a_1 Z_{t-1} - a_2 Z_{t-2} - \ldots - a_p Z_{t-p} &amp; = &amp; a_0 \nonumber \\
+    Z_t - a_1 L Z_t - a_2 L^2 Z_t - \ldots - a_p L^p Z_t &amp; = &amp; a_0 \nonumber \\
+    (1 - a_1 L - a_2 L^2 - \ldots - a_p L^p) Z_t &amp; = &amp; a_0
+    \tag{2.33}
+\end{eqnarray}\]</span></p>
+<p>Por el Teorema Fundamental del Álgebra es posible escribir a la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDOP2">(2.33)</a> como:
+<span class="math display" id="eq:EDOP3">\[\begin{eqnarray}
+    (1 - g_1 L)(1 - g_1 L) \ldots (1 - g_p L) Z_t &amp; = &amp; a_0
+    \tag{2.34}
+\end{eqnarray}\]</span></p>
+<p>Utilizando la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDOP2">(2.33)</a> y la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDOP3">(2.34)</a> tenemos que la solución general de una ecuación como la descrita en <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDOP">(2.32)</a> se puede escribir como:
+<span class="math display" id="eq:EDOPGEN">\[\begin{equation}
+    Z_t  =  \frac{a_0}{1 - a_1 - a_2 - \ldots - a_p} + s_1 g^t_1 + s_2 g^t_2 + \ldots + s_p g^t_p \\
+    \tag{2.35}
+\end{equation}\]</span><br />
+<span class="math display" id="eq:EDOPGEN2">\[\begin{eqnarray}
+    Z_t &amp; = &amp; \frac{a_0}{(1 - g_1)(1 - g_1) \ldots (1 - g_p)} + s_1 g^t_1 + s_2 g^t_2 + \ldots + s_p g^t_p 
+    \tag{2.36}
+\end{eqnarray}\]</span></p>
+<p>Donde <span class="math inline">\(s_1\)</span>, <span class="math inline">\(s_2\)</span>, …, <span class="math inline">\(s_p\)</span> son cosntantes que se determinan utilizando <span class="math inline">\(p\)</span> valores partículares de <span class="math inline">\(Z_t\)</span>, y la solución general descrita en las ecuaciones <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDOPGEN">(2.35)</a> y <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDOPGEN2">(2.36)</a> implica encontrar <span class="math inline">\(p\)</span> raíces: <span class="math inline">\(x_1 = g^{-1}_1\)</span>, <span class="math inline">\(x_2 = g^{-1}_2\)</span>, …, <span class="math inline">\(x_p = g^{-1}_p\)</span> de los siguientes polinomios equivalentes:</p>
+<p><span class="math display" id="eq:POLGEN">\[\begin{eqnarray}
+    (1 - g_1)(1 - g_1) \ldots (1 - g_p) = 0 \\
+    1 - a_1 x - a_2 x^2 - \ldots - a_p x^p = 0 \\
+    \tag{2.37}
+    a_p x^p + \ldots + a_2 x^2 + a_1 x - 1 = 0
+\end{eqnarray}\]</span></p>
+<p>Antes de plantear la solución general, analicemos una solución patícular cuando un conjunto de las <span class="math inline">\(p\)</span> raíces, digamos un total de <span class="math inline">\(m\)</span>, son iguales, es decir, cuando sucede que <span class="math inline">\(g_1 = g_2 = \ldots = g_m = g\)</span> (con <span class="math inline">\(1 &lt; m \leq p\)</span>). En este caso la solución general en la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDOPGEN2">(2.36)</a> se escribe como:
+<span class="math display" id="eq:EDOPGEN3">\[\begin{eqnarray}
+    Z_t &amp; = &amp; \frac{a_0}{(1 - g)^m(1 - g_{m+1}) \ldots (1 - g_p)} \nonumber \\ 
+    &amp; &amp; + s_1 g^t + s_2 t g^t + \ldots + s_m t^{m-1} g^t + s_{m+1} g^t_{m+1} + \ldots + s_{p} g^t_{p}
+    \tag{2.38}
+\end{eqnarray}\]</span></p>
+<p>Definamos:
+<span class="math display">\[\begin{equation}
+    f(g) = \frac{1}{1 - g} = \sum_{j = 0}^{\infty} g^j
+\end{equation}\]</span></p>
+<p>Si retomamos el método descrito parráfos arriba tenemos las siguientes expresiones. Cuando <span class="math inline">\(m = 2\)</span>:
+<span class="math display">\[\begin{equation}
+    f&#39;(g) = \frac{1}{(1 - g)^2} = \sum_{j = 0}^{\infty} j g^{j-1} = \sum_{j = 0}^{\infty} (1 + j) g^j \nonumber
+\end{equation}\]</span></p>
+<p>En el otro extremo, cuando <span class="math inline">\(m = p\)</span>:
+<span class="math display">\[\begin{equation}
+    f^{(p-1)}(g) = \frac{p-1}{(1 - g)^p} = \sum_{j = 0}^{\infty} \frac{(p-1+j)(p-2+j) \ldots (2+j)(1+j)}{(p-1)!} g^j
+\end{equation}\]</span></p>
+<p>Así, en el extremo cuando <span class="math inline">\(m = p\)</span> la solución general podría estar dada por:
+<span class="math display" id="eq:EDOPGEN4">\[\begin{eqnarray}
+    Z_t &amp; = &amp; a_0 \sum_{j = 0}^{\infty} \frac{(p-1+j)(p-2+j) \ldots (2+j)(1+j)}{(p-1)!} g^j \nonumber 
+    &amp; &amp; + g^t \sum_{i = 0}^p s_i t^{i-1}
+    \tag{2.39}
+\end{eqnarray}\]</span></p>
+<p>Donde <span class="math inline">\(|{g} &lt; 1|\)</span>, <span class="math inline">\(t = \ldots, -2, -1, 0, 1, 2, \ldots\)</span>. Para finalizar esta sección, plantearemos la expresión de polinomio característico que nos permitirá hacer el análisis de convergencia de los procesos. Partamos de que la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:POLGEN">(2.37)</a> se puede escribir como:
+<span class="math display" id="eq:POLGEN2">\[\begin{equation}
+    (x^{-1})^p - a_1 (x^{-1})^{p-1} - a_2 (x^{-1})^{p-1} - \ldots - a_p = 0
+    \tag{2.40}
+\end{equation}\]</span></p>
+<p>La ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:POLGEN2">(2.40)</a> permite interpretar las raíces del polinomio característico de forma directa ya que <span class="math inline">\(x^{-1}_1 = g_1\)</span>, <span class="math inline">\(x^{-1}_2 = g_2\)</span>, …, <span class="math inline">\(x^{-1}_p = g_p\)</span>. Así, siempre que <span class="math inline">\(p \geq 1\)</span> en la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:EDOP">(2.32)</a>, diremos que el proceso descrito en esa ecuación dará como resultado un proceso convergente si se cumplen las dos condiciones <a href="elementos-de-ecuaciones-en-diferencia.html#eq:COND1">(2.41)</a> y <a href="elementos-de-ecuaciones-en-diferencia.html#eq:COND2">(2.42)</a>:
+<span class="math display" id="eq:COND1">\[\begin{equation}
+    |a_p| &lt; 1  
+    \tag{2.41}
+\end{equation}\]</span>
+<span class="math display" id="eq:COND2">\[\begin{equation}
+    a_1 + a_2 + \ldots + a_p &lt; 1
+    \tag{2.42}
+\end{equation}\]</span></p>
+<p>Alternativamente, cuando las raíces son reales lo anterior es equivalente a la expresión <a href="elementos-de-ecuaciones-en-diferencia.html#eq:COND3">(2.43)</a>:</p>
+<p><span class="math display" id="eq:COND3">\[\begin{eqnarray}
+    |g_i| &lt; 1
+    \tag{2.43}
+\end{eqnarray}\]</span></p>
+<p>Para <span class="math inline">\(\forall i = 1, 2, \ldots, p\)</span>. Cuando la raíces son imaginarias, las dos condiciones <a href="elementos-de-ecuaciones-en-diferencia.html#eq:COND1">(2.41)</a> y <a href="elementos-de-ecuaciones-en-diferencia.html#eq:COND2">(2.42)</a> son equivalentes a la expresión <a href="elementos-de-ecuaciones-en-diferencia.html#eq:COND4">(2.44)</a>:</p>
+<p><span class="math display" id="eq:COND4">\[\begin{eqnarray}
+    \sqrt{g_i g_j} = \sqrt{u^2 + v^2} &lt; 1 
+    \tag{2.44}
+\end{eqnarray}\]</span></p>
+<p>Para <span class="math inline">\(\forall i \neq j\)</span> y <span class="math inline">\(i, j = 1, 2, \ldots, p\)</span>. Cuando <span class="math inline">\(g_1 = g_2 = \ldots = g_p = g\)</span>, la condición de la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:COND3">(2.43)</a> se resume a que <span class="math inline">\(|g| &lt; 1\)</span>. En resumen, las condiciones descritas en las ecuaciones <a href="elementos-de-ecuaciones-en-diferencia.html#eq:COND3">(2.43)</a> y <a href="elementos-de-ecuaciones-en-diferencia.html#eq:COND4">(2.44)</a> se puden ilustrar con un circulo unitario como el de la Figura <a href="elementos-de-ecuaciones-en-diferencia.html#fig:fig4">2.4</a> en que sí las raíces se ubican dentro de éste, podemos decir que el proceso es convergente en el largo plazo.</p>
+<div class="figure" style="text-align: center"><span id="fig:fig4"></span>
+<img src="Notas-de-Clase_files/figure-html/fig4-1.png" alt="Circulo unitario en el que se cumple que $|g_i|&lt;1$ y $(g_i g_j)^{1/2} = (u^2 + v^2)^{1/2} &lt; 1$" width="384" />
+<p class="caption">
+Figure 2.4: Circulo unitario en el que se cumple que <span class="math inline">\(|g_i|&lt;1\)</span> y <span class="math inline">\((g_i g_j)^{1/2} = (u^2 + v^2)^{1/2} &lt; 1\)</span>
+</p>
+</div>
 
 </div>
 </div>
+<div id="operador-de-rezago-l" class="section level2">
+<h2><span class="header-section-number">2.2</span> Operador de rezago L</h2>
+<p>Denotemos, como se ha mencionado con anterioridad, con <span class="math inline">\(L\)</span> al operador de rezago, el cual nos permitirá construir una relación entre diferencias y medias móviles como se verá más adelante en los procesos univariados <span class="math inline">\(AR(p)\)</span>, <span class="math inline">\(MA(q)\)</span> y, en general, <span class="math inline">\(ARIMA(p, d, q)\)</span>. Sean <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> o <span class="math inline">\(Z\)</span> variables con las que denotaremos a una serie de tiempo (note que hasta el momento no hemos definido qué es una serie de tiempo, no obstante no es necesario definirla para hacer uso del operador).</p>
+<p>En esta sección resumiremos algunas propiedades usadas en el capítulo y en capítulos más adelante. Así, si a dicha serie le aplicamos el operador rezago antes definido, el resultado deberá ser que cada uno de los valores de la serie es retardado o regresado un período. Es decir:</p>
+<p><span class="math display" id="eq:Lag1">\[\begin{equation}
+    L Z_t = Z_{t-1}
+    \tag{2.45}
+\end{equation}\]</span></p>
+<p>De esta forma, si aplicamos el operador rezago <span class="math inline">\(L\)</span> a la nueva serie de tiempo dada por <span class="math inline">\(Z_{t-1}\)</span> podemos obtener <span class="math inline">\(Z_{t-2}\)</span>, haciendo uso de la ecuación <a href="elementos-de-ecuaciones-en-diferencia.html#eq:Lag1">(2.45)</a> podemos obtener:
+<span class="math display">\[\begin{equation}
+    L Z_{t-1} = L(L Z_t) = L^2 Z_t = Z_{t-2}
+\end{equation}\]</span></p>
+<p>Mediante una generalización podemos obtener:
+<span class="math display">\[\begin{equation}
+    L^k Z_t = Z_{t-k}
+\end{equation}\]</span></p>
+<p>Para <span class="math inline">\(k = \ldots, -2, -1, 0, 1, 2, \ldots\)</span>. Así, para <span class="math inline">\(k = 0\)</span> obtenemos la identidad dado que <span class="math inline">\(L^0 Z_t = Z_t\)</span>, de tal forma que siempre asumiremos que <span class="math inline">\(L^0 = 1\)</span>. En otro caso, cuando <span class="math inline">\(k &gt; 0\)</span> a la serie de tiempo a la cual se le aplique el operador rezago <span class="math inline">\(L\)</span> se le deberá aplicar un rezago de <span class="math inline">\(k\)</span> periodos a cada uno de los elementos de la serie. Por el contrario, cuando <span class="math inline">\(k &lt; 0\)</span> el operador rezago significa que se deberá adelantar <span class="math inline">\(|k|\)</span> veces a cada elemento de la serie. Por ejemplo, <span class="math inline">\(L^{-3} Z_t = Z_{t+3}\)</span>.</p>
+</div>
 <div id="b-operadores-de-rezago-y-sus-representaciones" class="section level2">
-<h2><span class="header-section-number">2.2</span> b) Operadores de rezago y sus representaciones</h2>
+<h2><span class="header-section-number">2.3</span> b) Operadores de rezago y sus representaciones</h2>
 </div>
 <div id="c-representación-de-algunos-procesos-divergentes" class="section level2">
-<h2><span class="header-section-number">2.3</span> c) Representación de algunos procesos divergentes</h2>
+<h2><span class="header-section-number">2.4</span> c) Representación de algunos procesos divergentes</h2>
 
 </div>
 </div>
