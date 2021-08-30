@@ -5,7 +5,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Series de Tiempo</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://github.com/benjov/Series-de-Tiempo-2021" target="blank">Repositorio del Curso</a></li>
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:

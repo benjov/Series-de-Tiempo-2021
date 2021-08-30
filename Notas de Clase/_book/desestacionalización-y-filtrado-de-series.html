@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 Procesos estacionarios univariados | Notas de Clase: Series de Tiempo</title>
+  <title>Capítulo 5 Desestacionalización y filtrado de Series | Notas de Clase: Series de Tiempo</title>
   <meta name="description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 Procesos estacionarios univariados | Notas de Clase: Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 5 Desestacionalización y filtrado de Series | Notas de Clase: Series de Tiempo" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 Procesos estacionarios univariados | Notas de Clase: Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 5 Desestacionalización y filtrado de Series | Notas de Clase: Series de Tiempo" />
   
   <meta name="twitter:description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="modelos-de-series-de-tiempo-estacionarias.html"/>
-<link rel="next" href="procesos-no-estacionarios.html"/>
+<link rel="prev" href="procesos-estacionarios-univariados.html"/>
+<link rel="next" href="procesos-de-vectores-autoregresivos.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -87,12 +87,7 @@
 <li class="chapter" data-level="3.2" data-path="modelos-de-series-de-tiempo-estacionarias.html"><a href="modelos-de-series-de-tiempo-estacionarias.html#función-de-autocorrelación"><i class="fa fa-check"></i><b>3.2</b> Función de autocorrelación</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html"><i class="fa fa-check"></i><b>4</b> Procesos estacionarios univariados</a></li>
-<li class="chapter" data-level="5" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html"><i class="fa fa-check"></i><b>5</b> Procesos No Estacionarios</a><ul>
-<li class="chapter" data-level="5.1" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#a-definición-y-formas-de-no-estacionariedad"><i class="fa fa-check"></i><b>5.1</b> a) Definición y Formas de No Estacionariedad</a></li>
-<li class="chapter" data-level="5.2" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#b-elminación-de-la-tendencia"><i class="fa fa-check"></i><b>5.2</b> b) Elminación de la Tendencia</a></li>
-<li class="chapter" data-level="5.3" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#c-pruebas-de-raíz-unitaria-dickey-fuller-dickey-fuller-aumentada-phillips-perron-y-cambio-estructural"><i class="fa fa-check"></i><b>5.3</b> c) Pruebas de Raíz Unitaria: Dickey-Fuller, Dickey-Fuller Aumentada, Phillips-Perron y Cambio Estructural</a></li>
-<li class="chapter" data-level="5.4" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#d-descomposición-de-series-de-tiempo-filtros"><i class="fa fa-check"></i><b>5.4</b> d) Descomposición de Series de Tiempo (Filtros)</a></li>
-</ul></li>
+<li class="chapter" data-level="5" data-path="desestacionalización-y-filtrado-de-series.html"><a href="desestacionalización-y-filtrado-de-series.html"><i class="fa fa-check"></i><b>5</b> Desestacionalización y filtrado de Series</a></li>
 <li class="chapter" data-level="6" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html"><i class="fa fa-check"></i><b>6</b> Procesos de Vectores Autoregresivos</a><ul>
 <li class="chapter" data-level="6.1" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#a-definición-y-caracterización-del-concepto-de-causalidad"><i class="fa fa-check"></i><b>6.1</b> a) Definición y Caracterización del concepto de causalidad</a></li>
 <li class="chapter" data-level="6.2" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#b-prueba-de-causalidad"><i class="fa fa-check"></i><b>6.2</b> b) Prueba de Causalidad</a></li>
@@ -131,8 +126,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="procesos-estacionarios-univariados" class="section level1">
-<h1><span class="header-section-number">Capítulo 4</span> Procesos estacionarios univariados</h1>
+<div id="desestacionalización-y-filtrado-de-series" class="section level1">
+<h1><span class="header-section-number">Capítulo 5</span> Desestacionalización y filtrado de Series</h1>
 
 </div>
             </section>
@@ -140,8 +135,8 @@
           </div>
         </div>
       </div>
-<a href="modelos-de-series-de-tiempo-estacionarias.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="procesos-no-estacionarios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="procesos-estacionarios-univariados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="procesos-de-vectores-autoregresivos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

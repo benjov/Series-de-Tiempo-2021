@@ -1,9 +1,0 @@
-# Procesos No Estacionarios
-
-## a) Definición y Formas de No Estacionariedad 
-
-## b) Elminación de la Tendencia
-
-## c) Pruebas de Raíz Unitaria: Dickey-Fuller, Dickey-Fuller Aumentada, Phillips-Perron y Cambio Estructural
-
-## d) Descomposición de Series de Tiempo (Filtros) 

@@ -1,9 +1,0 @@
-#7 Cointegración
-
-## a) Definición y Propiedades del Proceso de Cointegración 
-
-## b) Cointegración de Modelos de una Ecuación 
-
-## c) Cointegración de Modelos de Vectores Autoregresivos
-
-## d) Cointegración y la Teoría Económica
