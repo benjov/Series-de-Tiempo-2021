@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 10 Modelos ADRL | Notas de Clase: Series de Tiempo</title>
+  <meta name="description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 10 Modelos ADRL | Notas de Clase: Series de Tiempo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 10 Modelos ADRL | Notas de Clase: Series de Tiempo" />
+  
+  <meta name="twitter:description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
+  
+
+<meta name="author" content="Benjamín Oliva &amp; Omar Alfaro-Rivera" />
+
+
+<meta name="date" content="2021-08-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modelos-univariados-y-multivariados-de-volatilidad.html"/>
+<link rel="next" href="modelos-de-datos-panel.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Series de Tiempo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#a-la-naturaleza-de-los-datos-de-series-de-tiempo"><i class="fa fa-check"></i><b>1.1</b> a) La naturaleza de los datos de Series de Tiempo</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#b-ejemplos-y-aplicaciones-de-las-series-de-tiempo"><i class="fa fa-check"></i><b>1.2</b> b) Ejemplos y aplicaciones de las Series de Tiempo</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html"><i class="fa fa-check"></i><b>2</b> Elementos de Ecuaciones en Diferencia</a><ul>
+<li class="chapter" data-level="2.1" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#a-ecuaciones-en-diferencia-para-procesos-deterministas"><i class="fa fa-check"></i><b>2.1</b> a) Ecuaciones en Diferencia para procesos deterministas</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#ecuaciones-en-diferencia-lineales-de-primer-orden"><i class="fa fa-check"></i><b>2.1.1</b> Ecuaciones en Diferencia Lineales de Primer Orden</a></li>
+<li class="chapter" data-level="2.1.2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#ecuaciones-en-diferencia-lineales-de-segundo-orden-y-de-orden-superior"><i class="fa fa-check"></i><b>2.1.2</b> Ecuaciones en Diferencia Lineales de Segundo Orden y de orden superior</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#operador-de-rezago-l"><i class="fa fa-check"></i><b>2.2</b> Operador de rezago L</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="modelos-de-series-de-tiempo-estacionarias.html"><a href="modelos-de-series-de-tiempo-estacionarias.html"><i class="fa fa-check"></i><b>3</b> Modelos de Series de Tiempo Estacionarias</a><ul>
+<li class="chapter" data-level="3.1" data-path="modelos-de-series-de-tiempo-estacionarias.html"><a href="modelos-de-series-de-tiempo-estacionarias.html#definición-de-ergodicidad-y-estacionariedad"><i class="fa fa-check"></i><b>3.1</b> Definición de ergodicidad y estacionariedad</a></li>
+<li class="chapter" data-level="3.2" data-path="modelos-de-series-de-tiempo-estacionarias.html"><a href="modelos-de-series-de-tiempo-estacionarias.html#función-de-autocorrelación"><i class="fa fa-check"></i><b>3.2</b> Función de autocorrelación</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html"><i class="fa fa-check"></i><b>4</b> Procesos estacionarios univariados</a></li>
+<li class="chapter" data-level="5" data-path="desestacionalización-y-filtrado-de-series.html"><a href="desestacionalización-y-filtrado-de-series.html"><i class="fa fa-check"></i><b>5</b> Desestacionalización y filtrado de Series</a></li>
+<li class="chapter" data-level="6" data-path="procesos-basados-en-vectores-autoregresivos.html"><a href="procesos-basados-en-vectores-autoregresivos.html"><i class="fa fa-check"></i><b>6</b> Procesos Basados en Vectores Autoregresivos</a></li>
+<li class="chapter" data-level="7" data-path="cointegración.html"><a href="cointegración.html"><i class="fa fa-check"></i><b>7</b> Cointegración</a></li>
+<li class="chapter" data-level="8" data-path="modelos-multivariados-de-volatilidad-m-arch-y-m-garch.html"><a href="modelos-multivariados-de-volatilidad-m-arch-y-m-garch.html"><i class="fa fa-check"></i><b>8</b> Modelos multivariados de volatilidad: <span class="math inline">\(M - ARCH\)</span> y <span class="math inline">\(M - GARCH\)</span></a></li>
+<li class="chapter" data-level="9" data-path="modelos-univariados-y-multivariados-de-volatilidad.html"><a href="modelos-univariados-y-multivariados-de-volatilidad.html"><i class="fa fa-check"></i><b>9</b> Modelos Univariados y Multivariados de Volatilidad</a></li>
+<li class="chapter" data-level="10" data-path="modelos-adrl.html"><a href="modelos-adrl.html"><i class="fa fa-check"></i><b>10</b> Modelos ADRL</a></li>
+<li class="chapter" data-level="11" data-path="modelos-de-datos-panel.html"><a href="modelos-de-datos-panel.html"><i class="fa fa-check"></i><b>11</b> Modelos de Datos Panel</a></li>
+<li class="chapter" data-level="12" data-path="otros-modelos-de-series-de-tiempo-no-lineales.html"><a href="otros-modelos-de-series-de-tiempo-no-lineales.html"><i class="fa fa-check"></i><b>12</b> Otros Modelos de Series de Tiempo No lineales</a></li>
+<li class="chapter" data-level="13" data-path="apendice-i.html"><a href="apendice-i.html"><i class="fa fa-check"></i><b>13</b> Apendice I</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/benjov/Series-de-Tiempo-2021" target="blank">Repositorio del Curso</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notas de Clase: Series de Tiempo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modelos-adrl" class="section level1">
+<h1><span class="header-section-number">Capítulo 10</span> Modelos ADRL</h1>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelos-univariados-y-multivariados-de-volatilidad.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modelos-de-datos-panel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Notas de Clase.pdf", "Notas de Clase.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
