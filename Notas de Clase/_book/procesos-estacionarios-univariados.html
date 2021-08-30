@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 Procesos Estacionarios Univariados | Notas de Clase: Series de Tiempo</title>
+  <title>Capítulo 4 Procesos estacionarios univariados | Notas de Clase: Series de Tiempo</title>
   <meta name="description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 Procesos Estacionarios Univariados | Notas de Clase: Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 4 Procesos estacionarios univariados | Notas de Clase: Series de Tiempo" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 Procesos Estacionarios Univariados | Notas de Clase: Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 4 Procesos estacionarios univariados | Notas de Clase: Series de Tiempo" />
   
   <meta name="twitter:description" content="Trabajo siempre en proceso de mejora, para cualquier comentario o aclaración, contactar al correo benjov@ciencias.unam.mx o omarxalpha@gmail.com" />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Benjamín Oliva &amp; Omar Alfaro-Rivera" />
 
 
-<meta name="date" content="2021-08-24" />
+<meta name="date" content="2021-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="literature.html"/>
-<link rel="next" href="applications.html"/>
+<link rel="prev" href="modelos-de-series-de-tiempo-estacionarias.html"/>
+<link rel="next" href="procesos-no-estacionarios.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -72,28 +72,41 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#prerrequisitos"><i class="fa fa-check"></i><b>1.1</b> Prerrequisitos</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#a-la-naturaleza-de-los-datos-de-series-de-tiempo"><i class="fa fa-check"></i><b>1.2</b> a) La naturaleza de los datos de Series de Tiempo</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#b-ejemplos-y-aplicaciones-de-las-series-de-tiempo"><i class="fa fa-check"></i><b>1.3</b> b) Ejemplos y aplicaciones de las Series de Tiempo</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#a-la-naturaleza-de-los-datos-de-series-de-tiempo"><i class="fa fa-check"></i><b>1.1</b> a) La naturaleza de los datos de Series de Tiempo</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#b-ejemplos-y-aplicaciones-de-las-series-de-tiempo"><i class="fa fa-check"></i><b>1.2</b> b) Ejemplos y aplicaciones de las Series de Tiempo</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html"><i class="fa fa-check"></i><b>2</b> Elementos de Ecuaciones en Diferencia</a><ul>
-<li class="chapter" data-level="2.1" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#a-ecuaciones-en-diferencia-homogéneas-de-primer-órden-y-sus-soluciones"><i class="fa fa-check"></i><b>2.1</b> a) Ecuaciones en diferencia homogéneas de primer órden y sus soluciones</a></li>
-<li class="chapter" data-level="2.2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#b-operadores-de-rezago-y-sus-representaciones"><i class="fa fa-check"></i><b>2.2</b> b) Operadores de rezago y sus representaciones</a></li>
-<li class="chapter" data-level="2.3" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#c-representación-de-algunos-procesos-divergentes"><i class="fa fa-check"></i><b>2.3</b> c) Representación de algunos procesos divergentes</a></li>
+<li class="chapter" data-level="2.1" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#a-ecuaciones-en-diferencia-para-procesos-deterministas"><i class="fa fa-check"></i><b>2.1</b> a) Ecuaciones en Diferencia para procesos deterministas</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#ecuaciones-en-diferencia-lineales-de-primer-orden"><i class="fa fa-check"></i><b>2.1.1</b> Ecuaciones en Diferencia Lineales de Primer Orden</a></li>
+<li class="chapter" data-level="2.1.2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#ecuaciones-en-diferencia-lineales-de-segundo-orden-y-de-orden-superior"><i class="fa fa-check"></i><b>2.1.2</b> Ecuaciones en Diferencia Lineales de Segundo Orden y de orden superior</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
-<li class="chapter" data-level="4" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html"><i class="fa fa-check"></i><b>4</b> Procesos Estacionarios Univariados</a><ul>
-<li class="chapter" data-level="4.1" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html#a-procesos-autoregresivos-arp"><i class="fa fa-check"></i><b>4.1</b> a) Procesos autoregresivos <span class="math inline">\(AR(p)\)</span></a></li>
-<li class="chapter" data-level="4.2" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html#b-procesos-de-medias-móviles-maq"><i class="fa fa-check"></i><b>4.2</b> b) Procesos de Medias Móviles <span class="math inline">\(MA(q)\)</span></a></li>
-<li class="chapter" data-level="4.3" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html#c-procesos-armapq-y-arima-pdq"><i class="fa fa-check"></i><b>4.3</b> c) Procesos <span class="math inline">\(ARMA(p,q)\)</span> y <span class="math inline">\(ARIMA (p,d,q)\)</span></a></li>
-<li class="chapter" data-level="4.4" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html#dfunción-de-autocorrelación-función-de-autocorrelación-parcial-y-pronósticos"><i class="fa fa-check"></i><b>4.4</b> d)Función de Autocorrelación, Función de Autocorrelación Parcial y Pronósticos</a></li>
+<li class="chapter" data-level="2.2" data-path="elementos-de-ecuaciones-en-diferencia.html"><a href="elementos-de-ecuaciones-en-diferencia.html#operador-de-rezago-l"><i class="fa fa-check"></i><b>2.2</b> Operador de rezago L</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
-<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
-<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+<li class="chapter" data-level="3" data-path="modelos-de-series-de-tiempo-estacionarias.html"><a href="modelos-de-series-de-tiempo-estacionarias.html"><i class="fa fa-check"></i><b>3</b> Modelos de Series de Tiempo Estacionarias</a><ul>
+<li class="chapter" data-level="3.1" data-path="modelos-de-series-de-tiempo-estacionarias.html"><a href="modelos-de-series-de-tiempo-estacionarias.html#definición-de-ergodicidad-y-estacionariedad"><i class="fa fa-check"></i><b>3.1</b> Definición de ergodicidad y estacionariedad</a></li>
+<li class="chapter" data-level="3.2" data-path="modelos-de-series-de-tiempo-estacionarias.html"><a href="modelos-de-series-de-tiempo-estacionarias.html#función-de-autocorrelación"><i class="fa fa-check"></i><b>3.2</b> Función de autocorrelación</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4" data-path="procesos-estacionarios-univariados.html"><a href="procesos-estacionarios-univariados.html"><i class="fa fa-check"></i><b>4</b> Procesos estacionarios univariados</a></li>
+<li class="chapter" data-level="5" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html"><i class="fa fa-check"></i><b>5</b> Procesos No Estacionarios</a><ul>
+<li class="chapter" data-level="5.1" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#a-definición-y-formas-de-no-estacionariedad"><i class="fa fa-check"></i><b>5.1</b> a) Definición y Formas de No Estacionariedad</a></li>
+<li class="chapter" data-level="5.2" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#b-elminación-de-la-tendencia"><i class="fa fa-check"></i><b>5.2</b> b) Elminación de la Tendencia</a></li>
+<li class="chapter" data-level="5.3" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#c-pruebas-de-raíz-unitaria-dickey-fuller-dickey-fuller-aumentada-phillips-perron-y-cambio-estructural"><i class="fa fa-check"></i><b>5.3</b> c) Pruebas de Raíz Unitaria: Dickey-Fuller, Dickey-Fuller Aumentada, Phillips-Perron y Cambio Estructural</a></li>
+<li class="chapter" data-level="5.4" data-path="procesos-no-estacionarios.html"><a href="procesos-no-estacionarios.html#d-descomposición-de-series-de-tiempo-filtros"><i class="fa fa-check"></i><b>5.4</b> d) Descomposición de Series de Tiempo (Filtros)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html"><i class="fa fa-check"></i><b>6</b> Procesos de Vectores Autoregresivos</a><ul>
+<li class="chapter" data-level="6.1" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#a-definición-y-caracterización-del-concepto-de-causalidad"><i class="fa fa-check"></i><b>6.1</b> a) Definición y Caracterización del concepto de causalidad</a></li>
+<li class="chapter" data-level="6.2" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#b-prueba-de-causalidad"><i class="fa fa-check"></i><b>6.2</b> b) Prueba de Causalidad</a></li>
+<li class="chapter" data-level="6.3" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#c-definición-y-representación-del-sistema"><i class="fa fa-check"></i><b>6.3</b> c) Definición y representación del Sistema</a></li>
+<li class="chapter" data-level="6.4" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#d-causalidad-de-granger"><i class="fa fa-check"></i><b>6.4</b> d) Causalidad de Granger</a></li>
+<li class="chapter" data-level="6.5" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#e-análisis-de-impulso-respuesta"><i class="fa fa-check"></i><b>6.5</b> e) Análisis de Impulso-Respuesta</a></li>
+<li class="chapter" data-level="6.6" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#f-modelos-var1-var2-y-varp"><i class="fa fa-check"></i><b>6.6</b> f) Modelos <span class="math inline">\(VAR(1)\)</span>, <span class="math inline">\(VAR(2)\)</span> y $VAR(p)</a></li>
+<li class="chapter" data-level="6.7" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#a-definición-y-propiedades-del-proceso-de-cointegración"><i class="fa fa-check"></i><b>6.7</b> a) Definición y Propiedades del Proceso de Cointegración</a></li>
+<li class="chapter" data-level="6.8" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#b-cointegración-de-modelos-de-una-ecuación"><i class="fa fa-check"></i><b>6.8</b> b) Cointegración de Modelos de una Ecuación</a></li>
+<li class="chapter" data-level="6.9" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#c-cointegración-de-modelos-de-vectores-autoregresivos"><i class="fa fa-check"></i><b>6.9</b> c) Cointegración de Modelos de Vectores Autoregresivos</a></li>
+<li class="chapter" data-level="6.10" data-path="procesos-de-vectores-autoregresivos.html"><a href="procesos-de-vectores-autoregresivos.html#d-cointegración-y-la-teoría-económica"><i class="fa fa-check"></i><b>6.10</b> d) Cointegración y la Teoría Económica</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modelos-multivariados-de-volatilidad-m-arch-y-m-garch.html"><a href="modelos-multivariados-de-volatilidad-m-arch-y-m-garch.html"><i class="fa fa-check"></i><b>7</b> Modelos multivariados de volatilidad: <span class="math inline">\(M - ARCH\)</span> y <span class="math inline">\(M - GARCH\)</span></a></li>
+<li class="chapter" data-level="8" data-path="otros-modelos-no-lineales-con-rompimiento-y-modelos-de-cambio-de-régimen.html"><a href="otros-modelos-no-lineales-con-rompimiento-y-modelos-de-cambio-de-régimen.html"><i class="fa fa-check"></i><b>8</b> Otros modelos no lineales (con rompimiento y modelos de cambio de régimen)</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -115,29 +128,16 @@
 
             <section class="normal" id="section-">
 <div id="procesos-estacionarios-univariados" class="section level1">
-<h1><span class="header-section-number">Capítulo 4</span> Procesos Estacionarios Univariados</h1>
-<div id="a-procesos-autoregresivos-arp" class="section level2">
-<h2><span class="header-section-number">4.1</span> a) Procesos autoregresivos <span class="math inline">\(AR(p)\)</span></h2>
-</div>
-<div id="b-procesos-de-medias-móviles-maq" class="section level2">
-<h2><span class="header-section-number">4.2</span> b) Procesos de Medias Móviles <span class="math inline">\(MA(q)\)</span></h2>
-</div>
-<div id="c-procesos-armapq-y-arima-pdq" class="section level2">
-<h2><span class="header-section-number">4.3</span> c) Procesos <span class="math inline">\(ARMA(p,q)\)</span> y <span class="math inline">\(ARIMA (p,d,q)\)</span></h2>
-</div>
-<div id="dfunción-de-autocorrelación-función-de-autocorrelación-parcial-y-pronósticos" class="section level2">
-<h2><span class="header-section-number">4.4</span> d)Función de Autocorrelación, Función de Autocorrelación Parcial y Pronósticos</h2>
-<p>We describe our methods in this chapter.</p>
+<h1><span class="header-section-number">Capítulo 4</span> Procesos estacionarios univariados</h1>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="literature.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modelos-de-series-de-tiempo-estacionarias.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="procesos-no-estacionarios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,6 +1,1 @@
-# Modelos univariados de volatilidad
-
-## a) Modelos $ARCH$ y $GARCH$
-
-## b) Otros ejemplos de modelos de volatilidad
-
+# Procesos estacionarios univariados

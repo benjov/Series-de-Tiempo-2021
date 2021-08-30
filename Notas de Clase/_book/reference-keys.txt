@@ -111,3 +111,15 @@ eq:COND3
 eq:COND4
 operador-de-rezago-l
 eq:Lag1
+eq:Diff4
+fig:fig21
+fig:fig22
+fig:fig23
+fig:fig24
+eq:SUMINF
+modelos-de-series-de-tiempo-estacionarias
+definición-de-ergodicidad-y-estacionariedad
+eq:Serie
+función-de-autocorrelación
+eq:MATCOV
+eq:VARIANZA

@@ -167,7 +167,7 @@ Retomemos ahora el caso general descrito en la ecuación \@ref(eq:PROC01) y dete
 \begin{eqnarray}
     \frac{1}{1 - a_1} & = & 1 + a_1 + a_1^2 + \ldots + a_1^t + \ldots \nonumber \\
     & = & \sum_{i = 0}^{\infty} a_1^{i}
-    (\#(eq:SUMINF)
+    (\#eq:SUMINF)
 \end{eqnarray}
 
 Donde claramente es necesario que $|a_1| < 1$. Por lo tanto, sólo faltaría determinar el valor de la constante $s$ en la ecuación (\ref{PROC01}) de la siguiente forma, supongamos que observamos el proceso en el momento inicial, por lo que es posible determinar el valor de la constante conociendo el valor inicial del proceso como sigue:
@@ -217,7 +217,7 @@ Siguiendo la expresión mostrada en la ecuación (\ref{SOL_GEN}), obtenemos:
 (\#eq:ex4)
 \end{equation}
 
-Donde asumiremos que el valor inicial es $Z_0 = 10$ y que la ecuación converge al valor de $1.3333333 \ldots$, cuando $t$ es muy grande o tiende a infinito. Ahora simulemos el comportamiento de ambos procesos y estableceremos los resultados del Cuadro \ref{eq_diff_01}. Notemos que el segundo proceso converge de una forma más rapida que el primero. El Cuadro \@ref(tab:table1) se ilustra en las siguientes dos Figura \@ref(fig:fig1) y Figura \@ref(fig:fig2).
+Donde asumiremos que el valor inicial es $Z_0 = 10$ y que la ecuación converge al valor de $1.3333333 \ldots$, cuando $t$ es muy grande o tiende a infinito. Ahora simulemos el comportamiento de ambos procesos y estableceremos los resultados del Cuadro \ref{eq_diff_01}. Notemos que el segundo proceso converge de una forma más rapida que el primero. El Cuadro \@ref(tab:table1) se ilustra en las siguientes dos Figura \@ref(fig:fig21) y Figura \@ref(fig:fig22).
 
 
 ```{r table1, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
@@ -249,7 +249,7 @@ kable(tabla1, caption = "Dos ejemplos de Procesos de Ecuaciones Lineales de Prim
 ```
 
 
-```{r fig1, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Evolución del proceso dado por $Z_t =2+0.9Z_{t-1}$", fig.align='center', fig.height=3.5}
+```{r fig21, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Evolución del proceso dado por $Z_t =2+0.9Z_{t-1}$", fig.align='center', fig.height=3.5}
 
 ggplot(,aes(x = Tiempo, y=Zt))+
   geom_line(col="blue4")+
@@ -259,7 +259,7 @@ ggplot(,aes(x = Tiempo, y=Zt))+
 ```
 
 
-```{r fig2, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Evolución del proceso dado por $Z_t =2-0.5Z_{t-1}$", fig.align='center', fig.height=3.5}
+```{r fig22, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Evolución del proceso dado por $Z_t =2-0.5Z_{t-1}$", fig.align='center', fig.height=3.5}
 
 ggplot(,aes(x = Tiempo, y=Zt2))+
   geom_line(col="red4")+
@@ -447,7 +447,7 @@ Por lo que la solución es: $s_1 = -450$ y $s_2 = 440$, de donde podemos expresa
 (\#eq:Ejem01)
 \end{equation}
 
-La ecuación \@ref(eq:Ejem01) anterior convergerá al valor de 10 cuando $t \rightarrow \infty$. Para ilustrar la trayectoria de esta ecuación tomemos un cuadro similar al de los ejemplos anteriores. En el Cuadro \@ref(tab:table2) y la Figura \@ref(fig:fig3) mostramos los resultados de la trayectorua para 100 periodos. 
+La ecuación \@ref(eq:Ejem01) anterior convergerá al valor de 10 cuando $t \rightarrow \infty$. Para ilustrar la trayectoria de esta ecuación tomemos un cuadro similar al de los ejemplos anteriores. En el Cuadro \@ref(tab:table2) y la Figura \@ref(fig:fig23) mostramos los resultados de la trayectorua para 100 periodos. 
 ```{r table2, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 
 t = ts(c(0:100))
@@ -467,7 +467,7 @@ kable(tabla1, caption = "Un ejemplo de proceso de Ecuación de Segundo Orden con
 
 ```
 
-```{r fig3, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Evolución del proceso dado por $Z_t =3+0.9Z_{t-1}-0.2Z_{t-2}$", fig.align='center', fig.height=3.5}
+```{r fig23, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Evolución del proceso dado por $Z_t =3+0.9Z_{t-1}-0.2Z_{t-2}$", fig.align='center', fig.height=3.5}
 
 ggplot(,aes(x = t, y=Zt))+
   geom_line(col="green4")+
@@ -577,9 +577,9 @@ Para $\forall i = 1, 2, \ldots, p$. Cuando la raíces son imaginarias, las dos c
     (\#eq:COND4)
 \end{eqnarray}
 
-Para $\forall i \neq j$ y $i, j = 1, 2, \ldots, p$. Cuando $g_1 = g_2 = \ldots = g_p = g$, la condición de la ecuación \@ref(eq:COND3) se resume a que $|g| < 1$. En resumen, las condiciones descritas en las ecuaciones \@ref(eq:COND3) y \@ref(eq:COND4) se puden ilustrar con un circulo unitario como el de la Figura \@ref(fig:fig4) en que sí las raíces se ubican dentro de éste, podemos decir que el proceso es convergente en el largo plazo.
+Para $\forall i \neq j$ y $i, j = 1, 2, \ldots, p$. Cuando $g_1 = g_2 = \ldots = g_p = g$, la condición de la ecuación \@ref(eq:COND3) se resume a que $|g| < 1$. En resumen, las condiciones descritas en las ecuaciones \@ref(eq:COND3) y \@ref(eq:COND4) se puden ilustrar con un circulo unitario como el de la Figura \@ref(fig:fig24) en que sí las raíces se ubican dentro de éste, podemos decir que el proceso es convergente en el largo plazo.
 
-```{r fig4,fig.cap="Circulo unitario en el que se cumple que $|g_i|<1$ y $(g_i g_j)^{1/2} = (u^2 + v^2)^{1/2} < 1$", echo=FALSE, fig.height=4.5, fig.width=4, message=FALSE, warning=FALSE, fig.align='center'}
+```{r fig24,fig.cap="Circulo unitario en el que se cumple que $|g_i|<1$ y $(g_i g_j)^{1/2} = (u^2 + v^2)^{1/2} < 1$", echo=FALSE, fig.height=4.5, fig.width=4, message=FALSE, warning=FALSE, fig.align='center'}
 x = seq(-1,1,0.001)
 y = sqrt(1-x^2)
 par(new = T) 
@@ -589,13 +589,6 @@ plot(x,-y, type = "line", ylim = c(-1,1), ylab = "", col="red4")
 abline(v = 0)
 abline(h=0)
 ```
-
-\begin{figure}
-  \centering
-    \includegraphics[width = 0.4\textwidth]{Circle}
-  \caption{Circulo unitario en el que se cumple que: $\abs{g_i} < 1$ y $\sqrt{g_i g_j} = \sqrt{u^2 + v^2} < 1$}
-  \label{Circle}
-\end{figure}
 
 ## Operador de rezago L
 
@@ -633,10 +626,10 @@ De lo anterior podemos inferir el siguiente resultado:
 En el caso de la diferencia de órden cuatro o cuarta diferencia se puede expresar como:
 \begin{equation}
     \Delta_{4} Z_{t} = Z_{t} - Z_{t-4} = (1 - L^4) Z_{t}
-\label{Diff_4}
+(\#eq:Diff4)
 \end{equation}
 
-Al respecto, vale la pena aclarar que en ocaciones se hará uso de una notación alternativa dada por: $\Delta^k$ o $\Delta_k$, donde $k = 1, 2, 3, \ldots$, indistintamente, ya que en ambos casos se referirá a una diferencia de orden $k$. Esta notación resulta de gran utilidad cuando se quiere comparar periodos equivalentes como, por ejemplo, el mismo trimestre pero de un año anterior. De forma similar, para el caso de logarítmos podemos escribir a la ecuación (\ref{Diff_4}) como:
+Al respecto, vale la pena aclarar que en ocaciones se hará uso de una notación alternativa dada por: $\Delta^k$ o $\Delta_k$, donde $k = 1, 2, 3, \ldots$, indistintamente, ya que en ambos casos se referirá a una diferencia de orden $k$. Esta notación resulta de gran utilidad cuando se quiere comparar periodos equivalentes como, por ejemplo, el mismo trimestre pero de un año anterior. De forma similar, para el caso de logarítmos podemos escribir a la ecuación \@ref(eq:Diff4) como:
 \begin{equation}
     \Delta^{4} ln(Z_{t}) = \Delta_{4} ln(Z_{t}) = ln(Z_{t}) - ln(Z_{t-4}) = (1 - L^4) ln(Z_{t}) 
 \end{equation}
@@ -650,17 +643,17 @@ Una generalización del anterior caso puede ser escrito como un polinomio de ord
 \begin{eqnarray}
     \alpha(L) Z_{t} & = & (1 - \alpha_1 L - \alpha_2 L^2 - \ldots - \alpha_p L^p) Z_{t} \nonumber \\
     & = & Z_{t} - \alpha_1 Z_{t-1} - \alpha_2 Z_{t-2} - \ldots - \alpha_p Z_{t-p}
- \label{Ec_p}
+(\#ec:Ecp1)
 \end{eqnarray}
 
-Donde $\alpha_i$ puede ser remplazada por cualquier constante $a_i$, con $i = 1, 2, 3, \ldots$, para escribir ecuaciones como las anteriores. Adicionalmente, podemos decir que la ecuación (\ref{Ec_p}) es una generalización del caso de medias móviles, el cual admite una poderación distinta para cada uno de los elementos rezagados. 
+Donde $\alpha_i$ puede ser remplazada por cualquier constante $a_i$, con $i = 1, 2, 3, \ldots$, para escribir ecuaciones como las anteriores. Adicionalmente, podemos decir que la ecuación \@ref(eq:Ecp) es una generalización del caso de medias móviles, el cual admite una poderación distinta para cada uno de los elementos rezagados. 
 
 Existe la posibilidad de operar más de un polinomio a la vez. Para múltiples polinomios (digamos, los polinomios $\alpha(L)$ y $\beta(L)$) podemos escribir el siguiente resultado:
 \begin{equation}
     \alpha(L) \beta(L) = \beta(L) \alpha(L)
 \end{equation}
 
-Tales polinomios del operador rezago también son lladamos \textit{filtros lineales}. A manera de ejemplo tomemos el siguiente caso de diferencias para una serie de $Z_t$:
+Tales polinomios del operador rezago también son llamados _filtros lineales_. A manera de ejemplo tomemos el siguiente caso de diferencias para una serie de $Z_t$:
 \begin{equation}
     \Delta Z_{t} = (1 - L) Z_{t} = Z_{t} - Z_{t-1}  
 \end{equation}
@@ -676,7 +669,3 @@ De tal forma que el producto de ambos procesos se puede escribir como:
 \end{equation}
 
 Es decir, que el producto de dos polinomios, uno de diferencias y otro más de medias móviles, resulta en uno de diferencias pero de mayor grado, en este caso de grado 4.
-
-## b) Operadores de rezago y sus representaciones
-
-## c) Representación de algunos procesos divergentes 
