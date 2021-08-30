@@ -199,13 +199,42 @@ Lo anterior, dado que hemos supuesto que en la caminata aleatoria todas la varia
 
 Así, el proceso estocástico dado por la caminata alaeatoria sin un término de ajuste es estacionario en media, pero no en varianza o en covarianza, y consecuentemente, en general no estacionario, condición que contraria al caso del proceso simple descrito en $U_t$.
 
-Es facil ver que muchas de las posibilidades de realización de este proceso estocástico (series de tiempo) pueden tomar cualquiera de las rutas consideradas en el Figura \ref{Caminata}.
-\begin{figure}
-  \centering
-    \includegraphics[width=0.7\textwidth]{Caminata}
-  \caption{Ejemplo de 10 trayectorias de la caminata aleatoria, cuando sólo es posible cambios de +1 y -1}
-  \label{Caminata}
-\end{figure}
+Es facil ver que muchas de las posibilidades de realización de este proceso estocástico (series de tiempo) pueden tomar cualquiera de las rutas consideradas en el Figura \@ref(fig:fig31).
+
+```{r fig31, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Ejemplo de 10 trayectorias de la caminata aleatoria, cuando sólo es posible cambios de +1 y -1$", fig.align='center'}
+
+set.seed(1234)
+# Utilizaremos una función guardada en un archivo a parte
+# Llamamos a la función:
+source("Caminata.R")
+
+# Definimos argumentos de la función
+Opciones <- c(-1, 1)
+#
+Soporte <- 10000
+
+# Vamos a réplicar el proceso con estos parámetros
+Rango <- 200
+#
+Caminos <- 10
+
+#
+
+for(i in 1:Caminos){
+  TT <- data.matrix(data.frame(Caminata(Opciones, Soporte)[1]))
+  #
+  G_t <- data.matrix(data.frame(Caminata(Opciones, Soporte)[2]))
+  #
+  plot(TT, G_t, col = "blue", type = "l", ylab = "Ganancias", xlab = "Tiempo", ylim = c(-Rango,Rango))
+  #
+  par(new = TRUE)
+  #
+  i <- i +1
+}
+#
+par(new = FALSE)
+
+```
 
 ## Función de autocorrelación
 

@@ -123,3 +123,4 @@ eq:Serie
 función-de-autocorrelación
 eq:MATCOV
 eq:VARIANZA
+fig:fig31
