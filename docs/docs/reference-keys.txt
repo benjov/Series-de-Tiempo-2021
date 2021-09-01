@@ -84,3 +84,7 @@ modelos-adrl
 modelos-de-datos-panel
 otros-modelos-de-series-de-tiempo-no-lineales
 apendice-i
+estimador-de-mínimos-cuadrados-ordinarios-y-el-análisis-clásico-de-regresión
+estimación-por-el-método-de-máxima-verosimilitud-mv
+métricas-de-bondad-de-ajuste
+pruebas-de-hipótesis
