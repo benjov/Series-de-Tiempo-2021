@@ -1,1 +1,0 @@
-# Desestacionalización y filtrado de Series

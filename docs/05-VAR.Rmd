@@ -1,2 +1,0 @@
-# Procesos Basados en Vectores Autoregresivos
-
