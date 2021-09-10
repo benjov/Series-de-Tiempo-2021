@@ -50,9 +50,7 @@ Dicho lo anterior, [GitHub](https://github.com/) viene a ser una red social de d
 
 4) Como podremos notar, esto crea una nueva carpeta a la cual podemos acceder con la sentencia: cd .\ Series-de-Tiempo-2021
 
-4) Añadir el vínculo remoto, lo llamaremos "original": git add remote original "https://github.com/benjov/Series-de-Tiempo-2021"
-
-5) Finalmente cada  que deseemos actualizar los archivos con la conexión con nuestro repositorio remoto, bastará con ir a la ubicación de la carpeta con el domando _cd_ y escribir: git fetch original
+5) Finalmente cada  que deseemos actualizar los archivos con la conexión con nuestro repositorio remoto, bastará con ir a la ubicación de la carpeta con el domando _cd_ y escribir: git pull
 
 ## Programación Orientada a Objetos
 
