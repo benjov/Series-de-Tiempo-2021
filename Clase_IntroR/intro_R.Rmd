@@ -17,7 +17,9 @@ output: html_document
 6. En R existen un conjunto de __palabras reservadas__, como lo son: break, for, function, if, in, next, repeat, return, while, True, False, y algunas otras
 
 
-## Clases de objetos
+## Objetos
+
+### Clases de objetos
 
 Como ya se ha tenido la oportunidad se señalar, un hecho fundamental de la programación en R es contar con un buen manejo de los distintos tipos de objetos y sus propiedades. Estos son los tipos de objetos básicos
 
@@ -35,7 +37,7 @@ class(as.integer(2))
 # sqrt(-5)
 ```
 
-## Asignación e impresión de objetos 
+### Asignación e impresión de objetos 
 
 Otra cuestión importante es que la información que nosotros tenemos en R, es necesario _asignarle un nombre_, a esto le llamamos asignación de objetos y lo hacemos mediante el símbolo "<-" o "="
 
@@ -90,18 +92,18 @@ Un elemento de gran importancia dentro de un entorno de trabajo como _R_, son lo
 * Existe en (%in%)
 
 ```{r}
-2*2 == 5
-2*2 != 5
-2*2 >= 5
+2+2 == 5
+2+2 != 5
+2+2 >= 5
 
-2*2 == 5 & 2*2 <=5
+2+2 == 5 & 2+2 <=5
 FALSE & TRUE
 FALSE | TRUE
 
 secuencia = 1:10
 secuencia %in% 3
 ```
-## Tipo de objetos con múltiples datos
+### Arreglos datos múltiples de una dimensión
 
 Generalmente necesitamos utilizar objetos que contengan multiples datos, para este efecto existen los vectores y las columnas, en ambos casos los podemos generar con la función __c()__ (combine) que nos ayuda a combinar distintos objetos dentro de uno solo:
 
@@ -115,7 +117,7 @@ fruta = list("Naranja", 18, TRUE)
 class(fruta)
 ```
 
-## Clases de objetos bidimensionales
+## Arreglos de datos bidimensionales
 
 Los tipos de objetos que se observan en el apartado anterior tienen la característica de ser arreglos de datos de una sóla dimensión. Para los fines de esta clase, con mayor frecuencia utilizaremos arreglos bidimencionales (con filas y columnas). Los objetos de este tipo más utilizados son las matrices y los data frames
 
@@ -127,7 +129,7 @@ vector = 1:16
 M_object <-matrix(vector, ncol = 4) #Generamos una matriz a partir del vector
 M_object
 diagonal <- diag(4) #Generamos una matríz identidad de 3*3 
-M_object%*%diagonal #¿Por qué no imprime el resultado?
+M_object%*%diagonal 
 ```
 
 ```{r}
@@ -137,7 +139,7 @@ class(iris)
 class(iris$Sepal.Length)
 class(iris$Species)
 ```
-## Funciones creadas
+### Funciones creadas
 
 Un elemento particularmente poderoso de R, es la facilidad con la que podemos transitar de usuarios a desarrolladores. Seguramente el primer paso para este cometido es la creación de funciones. 
 
@@ -159,7 +161,7 @@ legend(2,10,c("raíz cuadrada","raíz cúbica"), lwd=c(5,2), col=c("black","blue
 
 ```
 
-## librerias
+### librerias
 
 Del mismo modo en que nosotros somos capaces de escribir funciones nuevas, multiples usuarios constantemente crean o actualizan _librerias_ para disminuir la cantidad de código que tiene que ser escrita. Básicamente las librerias ayudan a la comunidad de usuarios de R a tener mejores resultados sin tener que duplicar esfuerzos.
 
@@ -185,22 +187,22 @@ library(stargazer)
 options("getSymbols.warning4.0"=FALSE)
 ```
 
-### Descargamos la serie de las acciones de Amazon 
+### Obtención y exploración de datos
 
 ```{r}
 getSymbols("AMZN")
 head(AMZN, 2)
 ```
-### Gráfico
 
 ```{r}
 hchart(AMZN)
 ```
 
-### Descargamos la serie de las acciones de Amazon 
+Descargamos la serie de las acciones de Nasdaq 
+
 ```{r}
 getSymbols("NDAQ")
-head(AMZN, 2)
+head(NDAQ, 2)
 ### Gráfico
 hchart(NDAQ)
 ```
