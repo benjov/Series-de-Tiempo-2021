@@ -29,12 +29,12 @@ Como ya se ha tenido la oportunidad se señalar, un hecho fundamental de la prog
 * integer: números enteros
 * complex:  números complejos
 
-```{r}
+```{r warning=FALSE}
 class("R")
 class(56)
 class("R">"Python")
 class(as.integer(2))
-# sqrt(-5)
+class(sqrt(5)*as.complex(1))
 ```
 
 ### Asignación e impresión de objetos 
@@ -53,7 +53,7 @@ ObjetoGuardado
 Un tipo muy peculiar de objeto son las funciones, ya que estos objetos operan sobre otros objetos para generar un producto
 
 ```{r}
-class(as.numeric)
+class(class)
 ```
 Lo que declaramos dentro de la función se conoce como argumentos, que basicamente nos ayudan a definir sobre qué objeto debe operar la función y el modo en que queremos que actúe. En muchos casos algunos argumentos están obviados, pero es posible ajustarlos a lo que deseamos.
 
@@ -96,7 +96,7 @@ Un elemento de gran importancia dentro de un entorno de trabajo como _R_, son lo
 2+2 != 5
 2+2 >= 5
 
-2+2 == 5 & 2+2 <=5
+(2+2 == 5) & (2+2 <=5)
 FALSE & TRUE
 FALSE | TRUE
 
@@ -111,7 +111,7 @@ Generalmente necesitamos utilizar objetos que contengan multiples datos, para es
 * list: objetos que pueden tener multiples tipos de datos, son objetos de tipo _list_ y los generamos con la función que leva este nombre(list())
 
 ```{r}
-secuencia = 1:100
+secuencia = c(1,2,3,"R")
 class(secuencia)
 fruta = list("Naranja", 18, TRUE)
 class(fruta)
@@ -126,7 +126,7 @@ Los tipos de objetos que se observan en el apartado anterior tienen la caracter�
 
 ```{r}
 vector = 1:16
-M_object <-matrix(vector, ncol = 4) #Generamos una matriz a partir del vector
+M_object <-matrix(vector, ncol=4) #Generamos una matriz a partir del vector
 M_object
 diagonal <- diag(4) #Generamos una matríz identidad de 3*3 
 M_object%*%diagonal 
@@ -145,7 +145,7 @@ Un elemento particularmente poderoso de R, es la facilidad con la que podemos tr
 
 Como se mostró en el apartado de operadores numéricos, las raices sólo mantienen la capacidad se extraer la raíz cuadrada. La siguiente linea de condigo genera una función que nos permite  calcular raíces de orden _n_, utilizando dos argumentos: el objeto sobre el cual se realiza el cálculo, el orden de la raíz. 
 ```{r}
-raiz <- function(x, n = 2){
+raiz = function(x, n = 2){
   x**(1/n)
 }
 ```
@@ -167,6 +167,7 @@ Del mismo modo en que nosotros somos capaces de escribir funciones nuevas, multi
 
 Un gran ejemplo de ello es _ggplot2_, que actualmente es de las librerías más populares de R por permitir generar elementos visuales muy estéticos de un modo muy simple. 
 ```{r fig.align='center'}
+#install.packages("ggplot2")
 library(ggplot2)
 
 qplot(x,y, col = "Raíz cuadrada")+
