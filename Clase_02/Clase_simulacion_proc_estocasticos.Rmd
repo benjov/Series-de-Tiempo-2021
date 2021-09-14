@@ -5,7 +5,8 @@ date: "13/9/2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+### Dependencies and Setup
+```{r setup, include = FALSE, warning = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 #install.packages("ggplot2")
@@ -21,18 +22,19 @@ library(dplyr)
 
 getwd()
 ```
+# Trateremos de ilustrar/graficar el siguiente proceso
 
 Supongamos un proceso estocastico U_t, el cual es puramente aleatorio, en los siguientes
 terminos:
   
-  i)   $E[U_t] = mu = 0$ 
+  i)   $\mathbb{E}[U_t] = \mu = 0$ 
 
-  ii)  $Var[U_t] = E[(U_t - mu)^2] = E[(U_t)^2] = sigma^2$
+  ii)  $Var[U_t] = \mathbb{E}[(U_t - \mu)^2] = \mathbb{E}[(U_t)^2] = \sigma^2$
 
-  iii)  $Cov[U_t,U_s] = E[(U_t - mu)(U_s - mu)] = E[U_t U_s] = 0, para todo t distinto de s$
+  iii)  $Cov[U_t,U_s] = \mathbb{E}[(U_t - \mu)(U_s - \mu)] = \mathbb{E}[U_t U_s] = 0, \text{ para todo } t \text{ distinto de } s$
   
-```{r}
 # A. Utilizaremos una funcion de numeros aleatorios: 
+```{r}
 #-> rnorm
 
 args(rnorm)
@@ -43,10 +45,12 @@ rnorm(10, mean = 0, sd = 2)
 
 ```
 
+# Importante (para Simulaciones que sean replicables):
+
 
 ```{r}
-# Importante (para Simulaciones que sean replicables):
-#set.seed(10101) # Es una constate (la semilla) que fija la serie de numeros aleatorios
+set.seed(10101) # Es una constate (la semilla) que fija la serie de numeros aleatorios
+
 Z_t <- rnorm(1000, mean = 0, sd = 2)
 
 mean(Z_t)
@@ -57,8 +61,13 @@ hist(Z_t,
      main = "Histograma del proceso Z_t, Normal(0, 2)", 
      xlab = "Z_t", 
      ylab = "Frecuencia")
+```
+
 
 # ¿Cómo guardar la gráfica?
+
+```{r}
+
 png("G_Z_t.jpg",  width = 900)
 
 hist(Z_t, 
@@ -69,33 +78,35 @@ hist(Z_t,
 dev.off()
 ```
 
-```{r}
-# B. Generamos una función que hace un proceso de cualquier dimensión, para el caso del
-# lanzamiento de una moneda y un proceso estocástico del tipo X_t = X_t-1 + U_t
-# Una Función tiene una estructura:
-# function( lista de argumentos -- pede ser vacio )
-#   {
-#   Cálculos, prpcedimientos, etc.
-#   return( objeto de resultados ) -- puede ser opcional
-#   }
+# B. Generamos una función que hace un proceso de cualquier dimensión, para el caso del lanzamiento de una moneda y un proceso estocástico del tipo X_t = X_t-1 + U_t
+Una Función tiene una estructura:
 
-# La siguiente funcion necesita DOS argumentos
+function( lista de argumentos -- pede ser vacio )
+   {
+   Cálculos, procedimientos, etc.
+   return( objeto de resultados ) -- puede ser opcional
+   }
+
+La siguiente funcion necesita DOS argumentos
+
+```{r}
 
 Moneda <- function(R, Time){
   # R: es el conjunto del cual se extrae la muestra - espacio muestral
   # Time: es el tamaño de la serie resultante
-  # S: es el tamaño de los subconjuntos generados
   U_t <- replicate(Time, 
                    sample(R, size = 1, replace = TRUE) )
   # Esta es una funcion que genera un vector de resultados aleatorios de los posibles en
   # el espacio muestral, tomando muestras de tamaño 1
   return(U_t)
 }
+
 ```
 
-```{r}
 # Resutados: 
-# Inputs / argumentos de la funcion, para el caso de lanzar una moneda
+Inputs / argumentos de la funcion, para el caso de lanzar una moneda
+
+```{r}
 
 Resultados <- c(-1, 1)
 #
@@ -123,28 +134,21 @@ U$SU_t <- replicate(Periodos, 0)
 View(U)
 ```
 
+El siguiente ciclo recorre el data frame para ir acumulando los valores de U_t y colocando el valor acumulado en SU_t
+
 ```{r}
-# El siguiente ciclo recorre el data frame para ir acumulando los valores de U_t
-# y colocando el valor acumulado en SU_t
+
 for(i in 1:Periodos){
   U$SU_t[i] <- sum( U$U_t[1:i] )
 }
 
 View(U)
+
 ```
 
-```{r}
-# El siguiente ciclo recorre el data frame para ir acumulando los valores de U_t
-# y colocando el valor acumulado en SU_t
-for(i in 1:Periodos){
-  U$SU_t[i] <- sum( U$U_t[1:i] )
-}
-
-View(U)
-```
-
-```{r}
 # GRÁFICA
+
+```{r, echo = FALSE}
 ggplot(data = U, aes( x = Tiempo, y = SU_t) ) + 
   geom_line(size = 0.5, color = "darkblue") +
   #geom_point(size = 1.0, color = "darkblue") + 
@@ -164,16 +168,17 @@ ggplot(data = U, aes( x = Tiempo, y = SU_t) ) +
     caption = "Fuente: Elaboración propia. \nNotas: Simulación del lanzamiento de una moneda."
   )
 
-#ggsave("Lanzamiento_Moneda.png", width = 30, height = 15, units = "cm")
+ggsave("Lanzamiento_Moneda.png", width = 30, height = 15, units = "cm")
 
 #
 ```
 
-```{r}
 # C. Solucion a traves de una funcion
 
-# Utilizaremos una función guardada en un archivo a parte
-# Llamamos a la función:
+Utilizaremos una función guardada en un archivo a parte ('Caminata.R'). Llamamos a la función:
+
+```{r}
+
 source("Caminata.R")
 
 # Definimos argumentos de la función
