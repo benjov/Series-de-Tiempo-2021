@@ -3,6 +3,8 @@ title: "Clase 3. Autocorrelacion y otras pruebas sobre los datos"
 author: "Benjamin Oliva & Omar Alfaro-Rivera"
 date: "21/9/2021"
 output: html_document
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ### Dependencies and Setup
@@ -61,7 +63,7 @@ Datos[c(2:259) , 2]
 
 Datos[ , c(2:6)]
 
-Datos[ ,c(2, 3, 4, 5, 6)]
+Datos[ , c(2, 3, 4, 5, 6)]
 
 Datos[c("Pax_Nal", "Pax_Int", "Vue_Nal", "Vue_Int")]
 
@@ -110,7 +112,7 @@ plot(Pax_Metro,
      xlab = "Tiempo",  
      type = "l", lwd = 2,
      ylab = "Millones de personas",
-     main = "Pasajeros Transportados en el Metro de la CDMX \n(Ene-2000 a Jun-2019)",
+     main = "Pasajeros Transportados en el Metro de la CDMX \n(Ene-2000 a Jul-2021)",
      sub = "Fuente: Elaboración propia con información del INEGI")
 
 ```
@@ -130,7 +132,7 @@ ggplot(data = Datos, aes(x = Periodo, y = Pax_Metro)) +
   theme(plot.margin = unit(c(1,1,1,1), "cm")) +
   labs(
     title = "Pasajeros Transportados en el Metro de la CDMX",
-    subtitle = "(Ene-2000 a Jun-2019)",
+    subtitle = "(Ene-2000 a Jul-2021)",
     caption = "Fuente: Elaboración propia con información del INEGI, \nhttps://www.inegi.org.mx/app/indicadores/?tm=0&t=1090"
   )
 #
@@ -199,7 +201,7 @@ Tabla_Pax_Metro <- data.frame(matrix(c("Media",
                                       "Covarianza (t, t - 3)", 
                                       "Autocorrelacion(1)", 
                                       "Autocorrelacion(2)", 
-                                      "Autocorrelacion(2)", 
+                                      "Autocorrelacion(3)", 
                                       "Q(1)", 
                                       "Q(3)*"), 
                                     nrow = 10, 
@@ -238,13 +240,13 @@ Tabla_Pax_Metro[2, 2] <- round(var(Pax_Metro), digits = 2)
 Tabla_Pax_Metro[3, 2] <- round(cov(Pax_Metro[2:234], Pax_Metro[1:233]), digits = 2)
 Tabla_Pax_Metro[4, 2] <- round(cov(Pax_Metro[3:234], Pax_Metro[1:232]), digits = 2)
 Tabla_Pax_Metro[5, 2] <- round(cov(Pax_Metro[4:234], Pax_Metro[1:231]), digits = 2)
-Tabla_Pax_Metro[6, 2] <- round(Tabla_Pax_Metro[3, 2]/Tabla_Pax_Metro[2, 2], digits = 4)
-Tabla_Pax_Metro[7, 2] <- round(Tabla_Pax_Metro[4, 2]/Tabla_Pax_Metro[2, 2], digits = 4)
-Tabla_Pax_Metro[8, 2] <- round(Tabla_Pax_Metro[5, 2]/Tabla_Pax_Metro[2, 2], digits = 4)
-Tabla_Pax_Metro[9, 2] <- 234*(Tabla_Pax_Metro[6, 2]^2)
-Tabla_Pax_Metro[10, 2] <- 234*(Tabla_Pax_Metro[6, 2]^2 +
+Tabla_Pax_Metro[6, 2] <- round(Tabla_Pax_Metro[3, 2]/Tabla_Pax_Metro[2, 2], digits = 2)
+Tabla_Pax_Metro[7, 2] <- round(Tabla_Pax_Metro[4, 2]/Tabla_Pax_Metro[2, 2], digits = 2)
+Tabla_Pax_Metro[8, 2] <- round(Tabla_Pax_Metro[5, 2]/Tabla_Pax_Metro[2, 2], digits = 2)
+Tabla_Pax_Metro[9, 2] <- round(234*(Tabla_Pax_Metro[6, 2]^2), digits = 2)
+Tabla_Pax_Metro[10, 2] <- round(234*(Tabla_Pax_Metro[6, 2]^2 +
                                Tabla_Pax_Metro[7, 2]^2 +
-                               Tabla_Pax_Metro[8, 2]^2)
+                               Tabla_Pax_Metro[8, 2]^2), digits = 2)
 
 #
 Tabla_Pax_Metro
