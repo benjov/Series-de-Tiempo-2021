@@ -85,7 +85,7 @@ ggplot(data = X_t, aes(x = Tiempo, y = U_t)) +
 
 # Trayectoria del proceso AR(1) y de la solucion del mismo:
 \begin{equation}
-X_t = \frac{a_0}{1 - a_1} + \sum a_1^j U_{t-j}
+  X_t = \frac{a_0}{1 - a_1} + \sum a_1^j U_{t-j}
 \end{equation}
 
 ```{r}
