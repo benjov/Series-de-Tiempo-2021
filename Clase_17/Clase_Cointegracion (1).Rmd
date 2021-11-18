@@ -1,5 +1,5 @@
 ---
-title: "Clase 16. Cointegracion (1)"
+title: "Clase 17. Cointegracion (1)"
 author: "Benjamin Oliva & Omar Alfaro-Rivera"
 date: "13/11/2021"
 output: html_document
