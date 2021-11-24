@@ -182,9 +182,9 @@ acf(abs(ARCH_m$residuals))
 ArchTest(logret, lags = 1, demean = TRUE)
 ```
 
-### GARCH(1,0)
+### ARCH(1)
 
-$Y_t = \mu_t+\varepsilon_t$
+$Y_t = \mu+\sqrt{h_t}\varepsilon_t$
 
 $h_t = \omega+\alpha_i\varepsilon^2_{t-i}+u_t$
 
@@ -195,7 +195,7 @@ library(rugarch)
 
 auto.arima(logret)
 
-model.spec = ugarchspec(variance.model = list(model = 'sGARCH' , garchOrder = c(1 , 0)), 
+model.spec = ugarchspec(variance.model = list(model = 'sGARCH' , garchOrder = c(0 , 1)), 
                         mean.model = list(armaOrder = c(0,0)), distribution.model = "std")
 
 arch.fit = ugarchfit(spec = model.spec , data = logret, solver = 'solnp')
@@ -228,7 +228,7 @@ ggplot()+
 
 ## GARCH(0,1)
 
-$Y_t = \mu_t+\varepsilon_t$
+$Y_t = \mu+\sqrt{h_t}\varepsilon_t$
 
 $h_t = \omega+\beta_ih^2_{t-i}+u_t$
 
@@ -236,7 +236,7 @@ $\varepsilon$~$N(0,1)$
 
 
 ```{r}
-model.spec = ugarchspec(variance.model = list(model = 'sGARCH' , garchOrder = c(0,1)), 
+model.spec = ugarchspec(variance.model = list(model = 'sGARCH' , garchOrder = c(1,0)), 
                         mean.model = list(armaOrder = c(0,2)), distribution.model = "std")
 
 fit.garch.n = ugarchfit(spec = model.spec, data = logret, solver = "solnp")
@@ -254,7 +254,7 @@ alpha <- 0.05
 VaR <- quantile(rvec, alpha)
 VaR
 
-F_inv = qt(0.05, 2.9079)
+F_inv = qt(0.05, t.fit$estimate[3])
 
 tiempo= time(AMZN[-1])
 
@@ -268,9 +268,9 @@ ggplot()+
 
 ### Selecci'on GARCH(p,q) 'optimo
 
-$Y_t = \mu_t+\varepsilon_t$
+$Y_t = \mu+\sqrt{h_t}\varepsilon_t$
 
-$h_t = \omega+\beta_ih^2_{t-i}+\alpha_i\varepsilon^2_{t-i}+u_t$
+$h_t = \omega+\beta_ih_{t-i}+\alpha_i\varepsilon^2_{t-i}+u_t$
 
 $\varepsilon$~$N(0,1)$
 
@@ -286,7 +286,9 @@ infocriteria(fit.garch.n)
 source("Lag_Opt_GARCH.R")
 
 Lag_Opt_GARCH(ehatsq,4,4)
+```
 
+```{r}
 
 # Estimación de modelo óptimo 
 
@@ -312,7 +314,7 @@ alpha <- 0.05
 VaR <- quantile(rvec, alpha)
 VaR
 
-F_inv = qt(0.05, 2.9079)
+F_inv = qt(0.05, t.fit$estimate[3])
 
 tiempo= time(AMZN[-1])
 
@@ -326,9 +328,9 @@ ggplot()+
 #comparativo entre cálculos 
 ggplot()+
   geom_point(aes(y = logret,x = tiempo),colour = 'lightgrey' , size = 2) + 
-  geom_line(aes(y = model.fit@fit$sigma*(F_inv), x = tiempo), colour = 'red4') +
-  geom_line(aes(y = arch.fit@fit$sigma*(F_inv), x = tiempo), colour = 'red', alpha = 0.25) +
-  geom_line(aes(y = fit.garch.n@fit$sigma*(F_inv), x = tiempo), colour = 'red2') +
+  geom_line(aes(y = model.fit@fit$sigma*(F_inv), x = tiempo), colour = 'red') +
+  geom_line(aes(y = arch.fit@fit$sigma*(F_inv), x = tiempo), colour = 'blue', alpha = 0.25) +
+  geom_line(aes(y = fit.garch.n@fit$sigma*(F_inv), x = tiempo), colour = 'blue4') +
   geom_hline(yintercept = sd(logret)*qnorm(0.05) , colour = 'darkgreen') + theme_light() + 
   labs(x = '' , y = 'Daily Returns' , title = 'Value at Risk Comparison')
 
