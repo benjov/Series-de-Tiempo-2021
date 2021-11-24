@@ -195,7 +195,7 @@ library(rugarch)
 
 auto.arima(logret)
 
-model.spec = ugarchspec(variance.model = list(model = 'sGARCH' , garchOrder = c(0 , 1)), 
+model.spec = ugarchspec(variance.model = list(model = 'sGARCH' , garchOrder = c(1, 0)), 
                         mean.model = list(armaOrder = c(0,0)), distribution.model = "std")
 
 arch.fit = ugarchfit(spec = model.spec , data = logret, solver = 'solnp')
@@ -236,7 +236,7 @@ $\varepsilon$~$N(0,1)$
 
 
 ```{r}
-model.spec = ugarchspec(variance.model = list(model = 'sGARCH' , garchOrder = c(1,0)), 
+model.spec = ugarchspec(variance.model = list(model = 'sGARCH' , garchOrder = c(0,1)), 
                         mean.model = list(armaOrder = c(0,2)), distribution.model = "std")
 
 fit.garch.n = ugarchfit(spec = model.spec, data = logret, solver = "solnp")
