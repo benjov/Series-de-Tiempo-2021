@@ -1,7 +1,7 @@
 ---
 title: "Aplicacion ARCH(q) y GARCH(p,q)"
 author: "Benjamin Oliva & Omar Alfaro-Rivera"
-date: "22/11/2021"
+date: "25/11/2021"
 output: html_document
 ---
 
@@ -14,6 +14,9 @@ output: html_document
 #install.packages("tsbox")
 #install.packages("metRology")
 #install.packages("expm")
+#install.packages("MTS")
+#install.packages("rmgarch")
+#install.packages("Rcpp")
 library(expm)
 library(Matrix)
 library(ggplot2)
@@ -28,6 +31,9 @@ library(readxl)
 library(MASS)
 library(rugarch)
 library(tsbox)
+library(MTS)
+library(rmgarch)
+library(Rcpp)
 ```
 ## Librería __Quantmod__
 
@@ -266,7 +272,7 @@ ggplot()+
 
 ```
 
-### Selecci'on GARCH(p,q) 'optimo
+### Selección GARCH(p,q) óptimo
 
 $Y_t = \mu+\sqrt{h_t}\varepsilon_t$
 
@@ -324,8 +330,11 @@ ggplot()+
   geom_hline(yintercept = sd(logret)*qnorm(0.05) , colour = 'darkgreen' , size = 1.2) + theme_light() + 
   labs(x = '' , y = 'Daily Returns' , title = 'Value at Risk Comparison')
 
+```
 
-#comparativo entre cálculos 
+### Comparativo entre cálculos 
+
+```{r}
 ggplot()+
   geom_point(aes(y = logret,x = tiempo),colour = 'lightgrey' , size = 2) + 
   geom_line(aes(y = model.fit@fit$sigma*(F_inv), x = tiempo), colour = 'red') +
