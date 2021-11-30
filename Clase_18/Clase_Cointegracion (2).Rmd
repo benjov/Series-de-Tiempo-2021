@@ -153,11 +153,7 @@ TT <- ts(c(1:259),
 
 ```{r}
 
-U <- LDatos[ , 1] - 0.7559141*LDatos[ , 2] 
-                  + 0.3623270*LDatos[ , 3] 
-                  + 5.0035388*LDatos[ , 4] 
-                  - 4.2690269*LDatos[ , 5] 
-                  + 3.2113796
+U <- LDatos[ , 1] + 0.7559141*LDatos[ , 2] - 0.3623270*LDatos[ , 3] - 5.0035388*LDatos[ , 4] + 4.2690269*LDatos[ , 5] - 3.2113796
 
 ```
 
@@ -175,11 +171,11 @@ plot(U,
 
 ```{r}
 
-summary(ur.df(U, type = "trend", lags = 4))
+summary(ur.df(U, type = "trend", lags = 5))
 
-summary(ur.df(U, type = "drift", lags = 4))
+summary(ur.df(U, type = "drift", lags = 5))
 
-summary(ur.df(U, type = "none", lags = 4))
+summary(ur.df(U, type = "none", lags = 5))
 
 ```
 
