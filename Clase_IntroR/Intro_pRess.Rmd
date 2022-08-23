@@ -1,7 +1,7 @@
 ---
 title: "Introducción a R"
 author: "Benjamin Oliva & Omar Alfaro"
-date: "Series de tiempo, Sep-2020"
+date: "Series de tiempo, Ago-2022"
 fontsize: 10
 output: 
   beamer_presentation:

@@ -1,7 +1,7 @@
 ---
 title: "Introducción a R"
 author: "Benjamin Oliva & Omar Alfaro-Rivera"
-date: "9/9/2021"
+date: "23/8/2022"
 output: html_document
 ---
 ## Algunas reglas importantes:
